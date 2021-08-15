@@ -2,7 +2,7 @@
   "name": "reatlas",
   "version": "1.0.0",
   "description": "A country explorer built using React.js and the REST Countries API.",
-  "main": "index.js",
+  "main": "./server/index.js",
   "scripts": {
     "start": "nodemon",
     "build": "npx webpack -w"
