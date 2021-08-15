@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getAllCountries } from '../requests.js'
+import CountryCard from './CountryCard.jsx'
 
 const App = () => {
 
@@ -15,7 +16,11 @@ const App = () => {
   });
 
   return(
-    <h1>{ countries.length ? countries[0].name : 'Loading...'}</h1>
+    <div id="countries">
+      { countries.length ? countries.map(country => {
+        return <CountryCard key={country.name} countryData={country}/>
+      }) : <p>Loading...</p>}
+    </div>
   )
 
 }

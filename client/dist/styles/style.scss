@@ -1,0 +1,22 @@
+body {
+  font-size: 16px;
+}
+
+#countries {
+  display: grid;
+  padding: 0 2em;
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-around;
+  column-gap: 2em;
+  row-gap: 2em;
+}
+
+.country {
+  border: 1px solid black;
+  width: 13em;
+  padding: 1em;
+
+  img {
+    max-width: 13em;
+  }
+}
