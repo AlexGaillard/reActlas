@@ -20,6 +20,19 @@ app.get('/all', async(req, res) => {
   res.send(response.data);
 })
 
+app.get('/region', async(req, res) => {
+
+  let query = req.query.region;
+
+  const options = {
+    method: 'get',
+    url: `https://restcountries.eu/rest/v2/region/${query}`
+  }
+
+  let response = await axios(options);
+  res.send(response.data);
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })

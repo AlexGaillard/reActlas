@@ -9,6 +9,17 @@ const getAllCountries = () => {
   return axios(options);
 }
 
+const getRegionCountries = (region) => {
+  let options = {
+    method: 'get',
+    url: 'http://localhost:3000/region',
+    params: { 'region':region }
+  }
+
+  return axios(options);
+}
+
 module.exports = {
-  getAllCountries
+  getAllCountries,
+  getRegionCountries
 }

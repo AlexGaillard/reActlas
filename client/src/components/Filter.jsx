@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Filter = () => {
+const Filter = ({filterResults}) => {
 
   return(
-    <select name="filter-region">
+    <select name="filter-region" onChange={filterResults}>
       <option selected disabled hidden>Filter by Region</option>
       <option value="africa">Africa</option>
       <option value="americas">Americas</option>
