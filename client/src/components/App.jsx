@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { getAllCountries } from '../requests.js'
 import CountryCard from './CountryCard.jsx'
+import Header from './Header.jsx'
+import Search from './Search.jsx'
+import Filter from './Filter.jsx'
 
 const App = () => {
 
@@ -16,11 +19,19 @@ const App = () => {
   });
 
   return(
-    <div id="countries">
-      { countries.length ? countries.map(country => {
-        return <CountryCard key={country.name} countryData={country}/>
-      }) : <p>Loading...</p>}
+    <div>
+      <Header />
+      <div id="filter-search">
+        <Search />
+        <Filter />
+      </div>
+      <div id="countries">
+        { countries.length ? countries.map(country => {
+          return <CountryCard key={country.name} countryData={country}/>
+        }) : <p>Loading...</p>}
+      </div>
     </div>
+
   )
 
 }
