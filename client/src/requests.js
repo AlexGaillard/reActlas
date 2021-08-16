@@ -7,7 +7,7 @@ const getAllCountries = () => {
   }
 
   return axios(options);
-}
+};
 
 const getRegionCountries = (region) => {
   let options = {
@@ -17,7 +17,7 @@ const getRegionCountries = (region) => {
   }
 
   return axios(options);
-}
+};
 
 const searchCountries = (searchString) => {
   let options = {
@@ -27,7 +27,7 @@ const searchCountries = (searchString) => {
   }
 
   return axios(options);
-}
+};
 
 module.exports = {
   getAllCountries,

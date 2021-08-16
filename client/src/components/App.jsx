@@ -29,8 +29,12 @@ const App = () => {
     e.preventDefault();
     searchCountries(e.target.search.value)
     .then(res => {
+      console.log(res)
       setCountries(res.data);
-     });
+     })
+    .catch(err => {
+      alert('Sorry that country does\'nt exist')
+    });
   };
 
   return(
