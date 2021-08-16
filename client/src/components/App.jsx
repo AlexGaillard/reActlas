@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getAllCountries, getRegionCountries } from '../requests.js';
+import { getAllCountries, getRegionCountries, searchCountries } from '../requests.js';
 import CountryCard from './CountryCard.jsx';
 import Header from './Header.jsx';
 import Search from './Search.jsx';
@@ -25,12 +25,20 @@ const App = () => {
      });
   };
 
+  const searchResults = (e) => {
+    e.preventDefault();
+    searchCountries(e.target.search.value)
+    .then(res => {
+      setCountries(res.data);
+     });
+  };
+
   return(
     <div>
       <Header />
       <div id="filter-search">
-        <Search />
-        <Filter filterResults={filterResults}/>
+        <Search searchResults={searchResults} />
+        <Filter filterResults={filterResults} />
       </div>
       <div id="countries">
         { countries.length ? countries.map(country => {

@@ -1,17 +1,13 @@
 import React from 'react';
 
-const Search = () => {
-
-  const handleSubmit = () => {
-    alert('hi')
-  }
+const Search = ({ searchResults }) => {
 
   return(
-    <form onSubmit={handleSubmit}>
-      <input type="text" id ="country-search" name="country-search" placeholder="Search for a country...">
+    <form onSubmit={searchResults}>
+      <input type="text" id ="search" name="search" placeholder="Search for a country...">
       </input>
     </form>
-  )
+  );
 
 };
 

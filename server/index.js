@@ -33,6 +33,20 @@ app.get('/region', async(req, res) => {
   res.send(response.data);
 })
 
+app.get('/search', async(req, res) => {
+
+  let query = req.query.searchString;
+  console.log(query)
+
+  const options = {
+    method: 'get',
+    url: `https://restcountries.eu/rest/v2/name/${query}`
+  }
+
+  let response = await axios(options);
+  res.send(response.data);
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
