@@ -45,7 +45,7 @@ const App = () => {
         <Header />
         <Switch>
 
-          <Route path="/country" component={CountryInfo} />
+          <Route path="/:id" component={CountryInfo} />
 
           <Route path="/">
             <div id="filter-search">
@@ -55,7 +55,7 @@ const App = () => {
             <div id="countries">
               { countries.length ? countries.map((country, index) => {
 
-                let borders = [];
+                let borders = [country];
 
                 for (let i = 0; i < country.borders.length; i++) {
                   let targetBorder = country.borders[i];
@@ -64,7 +64,7 @@ const App = () => {
                   }
                 };
 
-                return  <Link to={{pathname:"/country", state: {country, borders}}} > <CountryCard key={country.name} countryData={country}/></Link>
+                return  <Link to={{pathname:`/${country.name}`, state: {country, borders}}} > <CountryCard key={country.name} countryData={country}/></Link>
               }) : <p>Loading...</p>}
             </div>
           </Route>
