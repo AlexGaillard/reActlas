@@ -29,8 +29,19 @@ const searchCountries = (searchString) => {
   return axios(options);
 };
 
+const getBorders = (searchString) => {
+  let options = {
+    method: 'get',
+    url: 'http://localhost:3000/borders',
+    params: { 'searchString': searchString }
+  }
+
+  return axios(options)
+}
+
 module.exports = {
   getAllCountries,
   getRegionCountries,
-  searchCountries
+  searchCountries,
+  getBorders
 }

@@ -30,8 +30,19 @@ const searchCountries = (searchString) => {
   return axios(options);
 };
 
+const getBorders = (searchString) => {
+
+  const options = {
+    method: 'get',
+    url: `https://restcountries.eu/rest/v2/alpha?codes=${searchString}`
+  }
+
+  return axios(options);
+};
+
 module.exports = {
   getAllCountries,
   getRegionCountries,
-  searchCountries
+  searchCountries,
+  getBorders
 }

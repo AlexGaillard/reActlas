@@ -1,8 +1,10 @@
 import React from 'react';
 
-const Filter = ({filterResults}) => {
+const Filter = ({ filterResults, filtered, resetFilter }) => {
 
   return(
+    <>
+    {filtered && <button onClick={resetFilter}>clear</button>}
     <select name="filter" onChange={filterResults}>
       <option selected disabled hidden>Filter by Region</option>
       <option value="africa">Africa</option>
@@ -11,6 +13,7 @@ const Filter = ({filterResults}) => {
       <option value="europe">Europe</option>
       <option value="oceania">Oceania</option>
     </select>
+    </>
   );
 
 };

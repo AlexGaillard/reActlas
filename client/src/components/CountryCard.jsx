@@ -3,7 +3,7 @@ import React from 'react';
 const CountryCard = ({ countryData }) => {
 
   return (
-    <div class="country">
+    <div className="country">
       <img src={ countryData.flag }></img>
       <div>
         <h3>{ countryData.name }</h3>
