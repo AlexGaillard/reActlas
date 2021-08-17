@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { getAllCountries, getRegionCountries, searchCountries } from '../requests.js';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import CountryCard from './CountryCard.jsx';
 import Header from './Header.jsx';
 import Search from './Search.jsx';
 import Filter from './Filter.jsx';
+import CountryInfo from './CountryInfo.jsx';
 
 const App = () => {
 
@@ -41,14 +42,10 @@ const App = () => {
   return(
     <Router>
       <div>
-      <Link to="/">Home</Link>
-      <Link to="/test">Test</Link>
         <Header />
         <Switch>
 
-          <Route path="/test">
-            <h1>TEST</h1>
-          </Route>
+          <Route path="/country" component={CountryInfo} />
 
           <Route path="/">
             <div id="filter-search">
@@ -56,8 +53,18 @@ const App = () => {
               <Filter filterResults={filterResults} />
             </div>
             <div id="countries">
-              { countries.length ? countries.map(country => {
-                return <CountryCard key={country.name} countryData={country}/>
+              { countries.length ? countries.map((country, index) => {
+
+                let borders = [];
+
+                for (let i = 0; i < country.borders.length; i++) {
+                  let targetBorder = country.borders[i];
+                  for (let j = 0; j < countries.length; j++) {
+                    if (countries[j].alpha3Code === targetBorder) borders.push(countries[j]);
+                  }
+                };
+
+                return  <Link to={{pathname:"/country", state: {country, borders}}} > <CountryCard key={country.name} countryData={country}/></Link>
               }) : <p>Loading...</p>}
             </div>
           </Route>
