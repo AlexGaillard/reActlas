@@ -10,6 +10,8 @@ import CountryInfo from './CountryInfo.jsx';
 const App = () => {
 
   const [countries, setCountries] = useState([]);
+  const [searched, setSearched] = useState(false);
+  const [filtered, setFiltered] = useState(false);
 
   useEffect(() => {
     if (!countries.length) {
@@ -20,10 +22,20 @@ const App = () => {
     };
   });
 
+  const reset = () => {
+    getAllCountries()
+      .then(res => {
+        setCountries(res.data);
+        setSearched(false);
+        setFiltered(false);
+    });
+  }
+
   const filterResults = (e) => {
     getRegionCountries(e.target.value)
     .then(res => {
       setCountries(res.data);
+      setFiltered(true);
      });
   };
 
@@ -33,6 +45,7 @@ const App = () => {
     .then(res => {
       console.log(res)
       setCountries(res.data);
+      setSearched(true);
      })
     .catch(err => {
       alert('Sorry that country does\'nt exist')
@@ -49,22 +62,12 @@ const App = () => {
 
           <Route path="/">
             <div id="filter-search">
-              <Search searchResults={searchResults} />
-              <Filter filterResults={filterResults} />
+              <Search searchResults={searchResults} searched={searched} resetSearch={reset} />
+              <Filter filterResults={filterResults} filtered={filtered} resetFilter={reset} />
             </div>
             <div id="countries">
-              { countries.length ? countries.map((country, index) => {
-
-                let borders = [country];
-
-                for (let i = 0; i < country.borders.length; i++) {
-                  let targetBorder = country.borders[i];
-                  for (let j = 0; j < countries.length; j++) {
-                    if (countries[j].alpha3Code === targetBorder) borders.push(countries[j]);
-                  }
-                };
-
-                return  <Link to={{pathname:`/${country.name}`, state: {country, borders}}} > <CountryCard key={country.name} countryData={country}/></Link>
+              { countries.length ? countries.map(country => {
+                return  <Link to={{pathname:`/${country.name}`, state: { country }}} > <CountryCard key={country.name} countryData={country}/></Link>
               }) : <p>Loading...</p>}
             </div>
           </Route>

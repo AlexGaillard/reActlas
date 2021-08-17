@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
-const { getAllCountries, getRegionCountries, searchCountries } = require('./requests.js');
+const { getAllCountries, getRegionCountries, searchCountries, getBorders } = require('./requests.js');
 const app = express();
 const port = 3000;
 
@@ -29,6 +29,12 @@ app.get('/search', async(req, res) => {
     res.status(404);
     res.end();
   }
+})
+
+app.get('/borders', async(req, res) => {
+  let query = req.query.searchString;
+  let response = await getBorders(query);
+  res.send(response.data);
 })
 
 app.listen(port, () => {

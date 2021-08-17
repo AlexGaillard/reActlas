@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getBorders } from '../requests.js';
 import { Link, useParams, useHistory  } from 'react-router-dom';
 
 const CountryInfo = (props) => {
 
   let country = props.location.state.country;
-  let borders = props.location.state.borders;
-  const countryName = country.name;
-
+  const [borders, setBorders] = useState([]);
   let history = useHistory();
 
-  function handleClick() {
+  useEffect(() => {
+    let queryString = '';
+    if (country.borders.length) {
+      country.borders.forEach(border => queryString += border + ';');
+      getBorders(queryString)
+      .then(res => {
+        setBorders(res.data);
+      })
+    }
+  }, [country]);
+
+  const handleClick = () => {
     history.push("/");
-  }
+  };
 
   return(
-
     <div>
        <button type="button" onClick={handleClick}>Back</button>
       <img src={ country.flag }></img>
@@ -44,10 +53,10 @@ const CountryInfo = (props) => {
                }) }
           </li>
         </ul>
-        <span>Border Countries: { borders.length > 1 ? borders.map(border => {
-                let country = border;
-                if (countryName !== country.name)
-                return  <Link to={{pathname:`/${country.name}`, state: {country, borders}}}><button>{ border.name }</button></Link>
+        <span>Border Countries: { country.borders.length ?
+                borders.map(border => {
+                  let country = border;
+                  return <Link to={{pathname:`/${country.name}`, state: {country}}}><button>{ border.name }</button></Link>
                 })
                 : <p>None</p>
               }
