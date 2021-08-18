@@ -24,7 +24,7 @@ const CountryInfo = (props) => {
   };
 
   return(
-    <div>
+    <div id="country-info">
        <button type="button" onClick={handleClick}>Back</button>
       <img src={ country.flag }></img>
       <div>

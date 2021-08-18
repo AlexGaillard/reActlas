@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Filter = ({ filterResults, filtered, resetFilter }) => {
+const Filter = ({ handleFilter, filterString, resetFilter }) => {
 
   return(
     <>
-    {filtered && <button onClick={resetFilter}>clear</button>}
-    <select name="filter" onChange={filterResults}>
+    {filterString && <button onClick={resetFilter}>clear</button>}
+    <select name="filter" onChange={handleFilter}>
       <option selected disabled hidden>Filter by Region</option>
       <option value="africa">Africa</option>
       <option value="americas">Americas</option>
