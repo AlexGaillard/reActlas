@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getAllCountries, getRegionCountries, searchCountries } from '../requests.js';
+import { getAllCountries } from '../requests.js';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import CountryCard from './CountryCard.jsx';
 import Header from './Header.jsx';
@@ -10,46 +10,80 @@ import CountryInfo from './CountryInfo.jsx';
 const App = () => {
 
   const [countries, setCountries] = useState([]);
-  const [searched, setSearched] = useState(false);
-  const [filtered, setFiltered] = useState(false);
+  const [displayed, setDisplayed] = useState([]);
+  const [searchString, setSearchString] = useState('');
+  const [filterString, setFilterString] = useState('');
 
   useEffect(() => {
     if (!countries.length) {
       getAllCountries()
       .then(res => {
         setCountries(res.data);
+        setDisplayed(res.data);
       });
     };
-  });
+  }, [countries]);
 
-  const reset = () => {
-    getAllCountries()
-      .then(res => {
-        setCountries(res.data);
-        setSearched(false);
-        setFiltered(false);
-    });
+  useEffect(() => {
+     if (searchString) {
+      let display = [];
+      for (let i = 0; i < displayed.length; i++) {
+        if (displayed[i].name.toLowerCase().includes(searchString)) {
+          display.push(displayed[i]);
+        }
+      }
+      setDisplayed(display);
+    }
+
+    if (!searchString && !filterString) setDisplayed(countries);
+    if (!searchString && filterString) {
+      let display = [];
+      for (let i = 0; i < countries.length; i++) {
+        if (countries[i].region.toLowerCase().includes(filterString)) {
+          display.push(countries[i]);
+        }
+      }
+      setDisplayed(display);
+    }
+  }, [searchString])
+
+  useEffect(() => {
+    if (!searchString) {
+      let display = [];
+      for (let i = 0; i < countries.length; i++) {
+        if (countries[i].region.toLowerCase().includes(filterString)) {
+          display.push(countries[i]);
+        }
+      }
+      setDisplayed(display);
+    }
+
+    if (searchString) {
+      let display = [];
+      for (let i = 0; i < countries.length; i++) {
+        if (countries[i].region.toLowerCase().includes(filterString) && countries[i].name.toLowerCase().includes(searchString)) {
+          display.push(countries[i]);
+        }
+      }
+      setDisplayed(display);
+    }
+  }, [filterString])
+
+  const reset = (str) => {
+    if (str === searchString) {
+      setSearchString('');
+    } else {
+      setFilterString('');
+    }
   }
 
-  const filterResults = (e) => {
-    getRegionCountries(e.target.value)
-    .then(res => {
-      setCountries(res.data);
-      setFiltered(true);
-     });
+  const handleFilter = (e) => {
+    setFilterString(e.target.value);
   };
 
-  const searchResults = (e) => {
+  const handleSearch = (e) => {
     e.preventDefault();
-    searchCountries(e.target.search.value)
-    .then(res => {
-      console.log(res)
-      setCountries(res.data);
-      setSearched(true);
-     })
-    .catch(err => {
-      alert('Sorry that country does\'nt exist')
-    });
+    setSearchString(e.target.search.value.toLowerCase())
   };
 
   return(
@@ -62,11 +96,11 @@ const App = () => {
 
           <Route path="/">
             <div id="filter-search">
-              <Search searchResults={searchResults} searched={searched} resetSearch={reset} />
-              <Filter filterResults={filterResults} filtered={filtered} resetFilter={reset} />
+              <Search handleSearch={handleSearch} searchString={searchString} resetSearch={reset} />
+              <Filter handleFilter={handleFilter} filterString={filterString} resetFilter={reset} />
             </div>
             <div id="countries">
-              { countries.length ? countries.map(country => {
+              { displayed.length ? displayed.map(country => {
                 return  <Link to={{pathname:`/${country.name}`, state: { country }}} > <CountryCard key={country.name} countryData={country}/></Link>
               }) : <p>Loading...</p>}
             </div>

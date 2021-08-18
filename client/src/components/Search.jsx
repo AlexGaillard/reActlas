@@ -1,12 +1,16 @@
 import React from 'react';
 
-const Search = ({ searchResults, searched, resetSearch }) => {
+const Search = ({ handleSearch, searchString, resetSearch }) => {
+
+  const reset = () => {
+    resetSearch(searchString)
+  }
 
   return(
-    <form onSubmit={searchResults}>
+    <form onSubmit={handleSearch}>
       <input type="text" id ="search" name="search" placeholder="Search for a country...">
       </input>
-      {searched && <button onClick={resetSearch}>clear</button>}
+      {searchString && <button onClick={reset}>clear</button>}
     </form>
   );
 
