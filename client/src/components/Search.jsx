@@ -7,7 +7,7 @@ const Search = ({ handleSearch, searchString, resetSearch }) => {
   }
 
   return(
-    <form onSubmit={handleSearch}>
+    <form onSubmit={handleSearch} autocomplete="off">
       <input type="text" id ="search" name="search" placeholder="Search for a country...">
       </input>
       {searchString && <button onClick={reset}>clear</button>}

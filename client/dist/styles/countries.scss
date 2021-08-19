@@ -1,0 +1,39 @@
+#countries {
+  color: $light-text;
+  font-size: 0.875em;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-between;
+  row-gap: 5em;
+
+  .country {
+    background-color: $light-elements;
+    border-radius: .5em;
+    width: 19em;
+    box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: 200ms;
+
+    &:hover {
+      transform: translate(0, -5px);
+      box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.2);
+    }
+
+    img {
+      width: 100%;
+      height: 11em;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    div {
+      padding: 0 1em 2.5em 1em;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
+

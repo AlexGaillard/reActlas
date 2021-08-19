@@ -7,9 +7,9 @@ const CountryCard = ({ countryData }) => {
       <img src={ countryData.flag }></img>
       <div>
         <h3>{ countryData.name }</h3>
-        <p>Population: { countryData.population }</p>
-        <p>Region: { countryData.region }</p>
-        <p>Capital: { countryData.capital }</p>
+        <p><strong>Population:</strong> { countryData.population }</p>
+        <p><strong>Region:</strong> { countryData.region }</p>
+        <p><strong>Capital:</strong> { countryData.capital }</p>
       </div>
     </div>
   )
