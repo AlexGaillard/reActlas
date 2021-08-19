@@ -88,8 +88,8 @@ const App = () => {
 
   return(
     <Router>
+      <Header />
       <div>
-        <Header />
         <Switch>
 
           <Route path="/:id" component={CountryInfo} />

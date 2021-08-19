@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getBorders } from '../requests.js';
-import { Link, useParams, useHistory  } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 
 const CountryInfo = (props) => {
 
