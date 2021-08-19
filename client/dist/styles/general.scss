@@ -8,9 +8,10 @@ body {
     display: grid;
     grid-template-columns: 10% 80% 10%;
 
-    a {
+    a, a:hover, a:focus, a:active {
       text-decoration: none;
-    }
+      color: inherit;
+  }
 
     div {
       grid-column: 2;
