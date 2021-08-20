@@ -27,4 +27,18 @@ body.dark {
     background-color: $dark-elements !important;
     color: $dark-text;
   }
+
+  #country-details {
+
+    button {
+      background-color: $dark-elements;
+      color: $dark-text-opaque;
+    }
+
+    div {
+      color: $dark-text;
+    }
+
+  }
+
 }

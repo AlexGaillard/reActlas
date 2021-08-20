@@ -1,4 +1,4 @@
-#country-info {
+#country-details {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 20% 80%;
@@ -7,7 +7,7 @@
     width: 9em;
     height: 3em;
     margin-bottom: 4em;
-    transition: 200ms;
+    transition: transform 200ms, background-color 1s;
     font-weight: 600;
 
     &:hover {
@@ -32,6 +32,7 @@
     align-self: center;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto auto;
+    transition: 1s;
 
     h3 {
       grid-row: 1;
@@ -60,7 +61,7 @@
       margin-right: .5em;
       margin-bottom: 1em;
       text-align: right;
-      transition: 200ms;
+      transition: transform 200ms, background-color 1s;
 
       &:hover {
         transform: translateY(-3px);

@@ -31,7 +31,7 @@ const CountryDetail = (props) => {
   }
 
   return(
-    <div id="country-info">
+    <div id="country-details">
        <button className="back-button" type="button" onClick={handleClick}><FontAwesomeIcon icon={faLongArrowAltLeft} /> Back</button>
       <img src={ country.flag }></img>
       <div>
