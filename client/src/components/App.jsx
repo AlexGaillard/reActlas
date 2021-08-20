@@ -45,7 +45,7 @@ const App = () => {
       }
       setDisplayed(display);
     }
-  }, [searchString])
+  }, [searchString]);
 
   useEffect(() => {
     if (!searchString) {
@@ -77,15 +77,6 @@ const App = () => {
     }
   }
 
-  const handleFilter = (e) => {
-    setFilterString(e.target.value);
-  };
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    setSearchString(e.target.search.value.toLowerCase())
-  };
-
   return(
     <Router>
       <Header />
@@ -96,12 +87,12 @@ const App = () => {
 
           <Route path="/">
             <div id="filter-search">
-              <Search handleSearch={handleSearch} searchString={searchString} resetSearch={reset} />
-              <Filter handleFilter={handleFilter} filterString={filterString} resetFilter={reset} />
+              <Search searchString={searchString} setSearchString={setSearchString} resetSearch={reset} />
+              <Filter filterString={filterString} setFilterString={setFilterString} resetFilter={reset} />
             </div>
             <div id="countries">
               { displayed.length ? displayed.map(country => {
-                return  <Link to={{pathname:`/${country.name}`, state: { country }}} > <CountryCard key={country.name} countryData={country}/></Link>
+                return  <Link to={{pathname:`/${country.name}`, state: { country }}} key={country.alpha3Code} > <CountryCard key={country.name} countryData={country}/></Link>
               }) : <p>Loading...</p>}
             </div>
           </Route>

@@ -23,6 +23,11 @@ const CountryInfo = (props) => {
     history.push("/");
   };
 
+  const parsePopulation = () => {
+    let parsed = new Intl.NumberFormat('en-US')
+    return parsed.format(country.population);
+  }
+
   return(
     <div id="country-info">
        <button type="button" onClick={handleClick}>Back</button>
@@ -31,7 +36,7 @@ const CountryInfo = (props) => {
         <h3>{ country.name }</h3>
         <ul>
           <li>Native Name: { country.nativeName }</li>
-          <li>Population: { country.population }</li>
+          <li>Population: { parsePopulation() }</li>
           <li>Region: { country.region }</li>
           <li>Sub Region: { country.subregion }</li>
           <li>Capital: { country.capital }</li>

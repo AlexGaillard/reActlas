@@ -1,13 +1,19 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
-const Filter = ({ handleFilter, filterString, resetFilter }) => {
+const Filter = ({ filterString, setFilterString, resetFilter }) => {
+
+  const handleChange = (e) => {
+    setFilterString(e.target.value);
+  };
 
   return(
     <>
-    {filterString && <button onClick={resetFilter}>clear</button>}
     <div id="filter">
-      <select name="filter" onChange={handleFilter}>
-        <option selected disabled hidden>Filter by Region</option>
+      {filterString && <FontAwesomeIcon icon={faTimesCircle} onClick={resetFilter} />}
+      <select name="filter" onChange={handleChange} value={filterString}>
+        <option hidden>Filter by Region</option>
         <option value="africa">Africa</option>
         <option value="americas">Americas</option>
         <option value="asia">Asia</option>

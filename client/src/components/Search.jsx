@@ -1,23 +1,27 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
-const Search = ({ handleSearch, searchString, resetSearch }) => {
+const Search = ({ searchString, setSearchString, resetSearch }) => {
 
-  const reset = () => {
-    resetSearch(searchString)
-  }
+  const reset = (e) => {
+    resetSearch(searchString);
+  };
+
+  const handleChange = (e) => {
+    setSearchString(e.target.value);
+  };
 
   return(
     <>
     <div>
-    <form onSubmit={handleSearch} autocomplete="off">
-      <FontAwesomeIcon icon={faSearch} />
-      <input type="text" id ="search" name="search" placeholder="Search for a country...">
-      </input>
-    </form>
+      <form autoComplete="off">
+        <FontAwesomeIcon icon={faSearch} />
+        <input type="text" id ="search" name="search" placeholder="Search for a country..." onChange={handleChange} value={searchString}>
+        </input>
+        {searchString && <FontAwesomeIcon icon={faTimesCircle} onClick={reset} />}
+      </form>
     </div>
-    {searchString && <button onClick={reset}>clear</button>}
     </>
   );
 
