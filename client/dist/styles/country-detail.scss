@@ -26,14 +26,27 @@
   }
 
   div {
-    display: flex;
-    flex-direction: column;
+    height: 100%;
+    display: grid;
     grid-column: 2;
     align-self: center;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+
+    h3 {
+      grid-row: 1;
+    }
 
     ul {
-      display: grid;
-      grid-template-columns: auto auto;
+      list-style-type: none;
+      padding: 0;
+      grid-row: 2;
+    }
+
+    span {
+      grid-row: 3;
+      grid-column-end: 3;
+      grid-column-start: 1;
     }
   }
 }

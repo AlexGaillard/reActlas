@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link, useParams, useHistory } from 'react-router-dom';
 
-const CountryInfo = (props) => {
+const CountryDetail = (props) => {
 
   let country = props.location.state.country;
   const [borders, setBorders] = useState([]);
@@ -42,6 +42,8 @@ const CountryInfo = (props) => {
           <li><b>Region:</b> { country.region }</li>
           <li><b>Sub Region:</b> { country.subregion }</li>
           <li><b>Capital:</b> { country.capital }</li>
+        </ul>
+        <ul>
           <li><b>Top Level Domain:</b> { country.topLevelDomain }</li>
           <li><b>Currencies:</b> { country.currencies.map((currency, index) => {
               if (country.currencies.length > 1) {
@@ -63,7 +65,7 @@ const CountryInfo = (props) => {
         <span>Border Countries: { country.borders.length ?
                 borders.map(border => {
                   let country = border;
-                  return <Link to={{pathname:`/${country.name}`, state: {country}}}><button>{ border.name }</button></Link>
+                  return <Link to={{pathname:`/${country.name}`, state: {country}}} key={border.name}><button>{ border.name }</button></Link>
                 })
                 : <p>None</p>
               }
@@ -75,4 +77,4 @@ const CountryInfo = (props) => {
 
 }
 
-export default CountryInfo;
+export default CountryDetail;

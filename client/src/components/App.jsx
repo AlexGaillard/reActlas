@@ -5,7 +5,7 @@ import CountryCard from './CountryCard.jsx';
 import Header from './Header.jsx';
 import Search from './Search.jsx';
 import Filter from './Filter.jsx';
-import CountryInfo from './CountryInfo.jsx';
+import CountryDetail from './CountryDetail.jsx';
 
 const App = () => {
 
@@ -83,7 +83,7 @@ const App = () => {
       <div>
         <Switch>
 
-          <Route path="/:id" component={CountryInfo} />
+          <Route path="/:id" component={CountryDetail} />
 
           <Route path="/">
             <div id="filter-search">
