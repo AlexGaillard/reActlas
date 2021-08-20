@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getBorders } from '../requests.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link, useParams, useHistory } from 'react-router-dom';
 
 const CountryInfo = (props) => {
@@ -30,18 +32,18 @@ const CountryInfo = (props) => {
 
   return(
     <div id="country-info">
-       <button type="button" onClick={handleClick}>Back</button>
+       <button className="back-button" type="button" onClick={handleClick}><FontAwesomeIcon icon={faLongArrowAltLeft} /> Back</button>
       <img src={ country.flag }></img>
       <div>
         <h3>{ country.name }</h3>
         <ul>
-          <li>Native Name: { country.nativeName }</li>
-          <li>Population: { parsePopulation() }</li>
-          <li>Region: { country.region }</li>
-          <li>Sub Region: { country.subregion }</li>
-          <li>Capital: { country.capital }</li>
-          <li>Top Level Domain: { country.topLevelDomain }</li>
-          <li>Currencies: { country.currencies.map((currency, index) => {
+          <li><b>Native Name:</b> { country.nativeName }</li>
+          <li><b>Population:</b> { parsePopulation() }</li>
+          <li><b>Region:</b> { country.region }</li>
+          <li><b>Sub Region:</b> { country.subregion }</li>
+          <li><b>Capital:</b> { country.capital }</li>
+          <li><b>Top Level Domain:</b> { country.topLevelDomain }</li>
+          <li><b>Currencies:</b> { country.currencies.map((currency, index) => {
               if (country.currencies.length > 1) {
                 if (index !== country.currencies.length - 1) return currency.name + ', '
                 else return currency.name;
@@ -49,7 +51,7 @@ const CountryInfo = (props) => {
               else return currency.name;
               }) }
           </li>
-          <li>Languages: { country.languages.map((language, index) => {
+          <li><b>Languages:</b> { country.languages.map((language, index) => {
                 if (country.languages.length > 1) {
                   if (index !== country.languages.length - 1) return language.name + ', '
                   else return language.name;
