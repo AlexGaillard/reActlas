@@ -5,7 +5,8 @@
   "main": "./server/index.js",
   "scripts": {
     "start": "nodemon",
-    "build": "npx webpack -w"
+    "build": "npx webpack -w",
+    "build-production": "npx webpack --mode=production -w"
   },
   "repository": {
     "type": "git",
