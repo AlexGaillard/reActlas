@@ -1,4 +1,5 @@
 nav {
+  transition: 1s;
   background-color: $light-elements;
   grid-row: 1;
   grid-column-start: 1;
@@ -12,6 +13,7 @@ nav {
   p {
     margin: auto 0;
     cursor: pointer;
+    font-weight: 600;
 
     svg {
       margin-right: .6em;

@@ -1,0 +1,30 @@
+body.dark {
+  background-color: $dark-background;
+
+  nav {
+    background: $dark-elements;
+    color: $dark-text;
+  }
+
+  #filter-search {
+
+    form, input {
+      background-color: $dark-elements;
+      color: $dark-text;
+
+      &::placeholder {
+        color: $dark-text-opaque;
+      }
+    }
+  }
+
+  #filter, select {
+    background-color: $dark-elements !important;
+    color: $dark-text-opaque;
+  }
+
+  .country {
+    background-color: $dark-elements !important;
+    color: $dark-text;
+  }
+}

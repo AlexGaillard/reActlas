@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getAllCountries } from '../requests.js';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import CountryCard from './CountryCard.jsx';
-import Header from './Header.jsx';
+import Nav from './Nav.jsx';
 import Search from './Search.jsx';
 import Filter from './Filter.jsx';
 import CountryDetail from './CountryDetail.jsx';
@@ -13,6 +13,7 @@ const App = () => {
   const [displayed, setDisplayed] = useState([]);
   const [searchString, setSearchString] = useState('');
   const [filterString, setFilterString] = useState('');
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     if (!countries.length) {
@@ -79,7 +80,7 @@ const App = () => {
 
   return(
     <Router>
-      <Header />
+      <Nav darkMode={darkMode} setDarkMode={setDarkMode} />
       <div>
         <Switch>
 
