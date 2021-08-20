@@ -8,6 +8,10 @@ const Search = ({ searchString, setSearchString, resetSearch }) => {
     resetSearch(searchString);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  }
+
   const handleChange = (e) => {
     setSearchString(e.target.value);
   };
@@ -15,7 +19,7 @@ const Search = ({ searchString, setSearchString, resetSearch }) => {
   return(
     <>
     <div>
-      <form autoComplete="off">
+      <form onSubmit={handleSubmit} autoComplete="off">
         <FontAwesomeIcon icon={faSearch} />
         <input type="text" id ="search" name="search" placeholder="Search for a country..." onChange={handleChange} value={searchString}>
         </input>
