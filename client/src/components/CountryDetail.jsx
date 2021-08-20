@@ -62,14 +62,14 @@ const CountryDetail = (props) => {
                }) }
           </li>
         </ul>
-        <span>Border Countries: { country.borders.length ?
+        <div><p><b>Border Countries:</b></p> { country.borders.length ?
                 borders.map(border => {
                   let country = border;
                   return <Link to={{pathname:`/${country.name}`, state: {country}}} key={border.name}><button>{ border.name }</button></Link>
                 })
                 : <p>None</p>
               }
-        </span>
+        </div>
 
       </div>
     </div>

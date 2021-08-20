@@ -2,9 +2,9 @@ body {
   margin: 0;
   font-size: 16px;
   font-family: 'Nunito Sans', sans-serif;
+  background-color: $light-background;
 
   #app {
-    background-color: $light-background;
     display: grid;
     grid-template-columns: 10% 80% 10%;
 
@@ -20,6 +20,10 @@ body {
       box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
       cursor: pointer;
       font-family: 'Nunito Sans';
+
+      &:hover {
+        box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.2);
+      }
     }
 
     div {
