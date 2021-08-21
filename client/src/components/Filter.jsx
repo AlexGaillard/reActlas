@@ -17,6 +17,7 @@ const Filter = ({ filterString, setFilterString, resetFilter }) => {
   };
 
   const reset = () => {
+    setIsOpen(false)
     resetFilter();
     setSelectedOption(null);
   }
@@ -26,8 +27,8 @@ const Filter = ({ filterString, setFilterString, resetFilter }) => {
   return(
     <>
       <div className="filter-container">
-        {filterString && <FontAwesomeIcon icon={faTimesCircle} onClick={reset} />}
-        <div className="filter-header" onClick={toggling}>{selectedOption || "Filter by region..."}</div>
+
+        <div className="filter-header" onClick={toggling}>{selectedOption || "Filter by region..."}{isOpen ? <FontAwesomeIcon icon={faChevronDown} rotation={180} /> : <FontAwesomeIcon icon={faChevronDown} />}</div>{filterString && <FontAwesomeIcon icon={faTimesCircle} onClick={reset} />}
         {isOpen && (
         <div className="filter-list-container">
           <ul className="filter-list">
@@ -46,15 +47,3 @@ const Filter = ({ filterString, setFilterString, resetFilter }) => {
 };
 
 export default Filter;
-
-    {/* <div id="filter">
-      {filterString && <FontAwesomeIcon icon={faTimesCircle} onClick={resetFilter} />}
-      <select name="filter" onChange={handleChange} value={filterString}>
-        <option hidden>Filter by Region</option>
-        <option value="africa">Africa</option>
-        <option value="americas">Americas</option>
-        <option value="asia">Asia</option>
-        <option value="europe">Europe</option>
-        <option value="oceania">Oceania</option>
-      </select>
-    </div> */}
