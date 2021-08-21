@@ -15,7 +15,6 @@ const App = () => {
   const [filterString, setFilterString] = useState('');
   const [darkMode, setDarkMode] = useState(false);
 
-
   useEffect(() => {
     if (!countries.length) {
       getAllCountries()
@@ -27,78 +26,43 @@ const App = () => {
   }, [countries]);
 
   useEffect(() => {
-     if (searchString) {
-      let display = [];
-      for (let i = 0; i < displayed.length; i++) {
-        if (displayed[i].name.toLowerCase().includes(searchString)) {
-          display.push(displayed[i]);
-        }
-      }
-      setDisplayed(display);
-    }
-
-    if (!searchString && !filterString) setDisplayed(countries);
-    if (!searchString && filterString) {
-      let display = [];
-      for (let i = 0; i < countries.length; i++) {
-        if (countries[i].region.toLowerCase().includes(filterString)) {
-          display.push(countries[i]);
-        }
-      }
-      setDisplayed(display);
-    }
+    handleFilterSearch();
   }, [searchString]);
 
   useEffect(() => {
-    if (!searchString) {
-      let display = [];
-      for (let i = 0; i < countries.length; i++) {
-        if (countries[i].region.toLowerCase().includes(filterString)) {
-          display.push(countries[i]);
-        }
-      }
-      setDisplayed(display);
-    }
+    handleFilterSearch();
+  }, [filterString]);
 
-    if (searchString) {
-      let display = [];
-      for (let i = 0; i < countries.length; i++) {
-        if (countries[i].region.toLowerCase().includes(filterString) && countries[i].name.toLowerCase().includes(searchString)) {
-          display.push(countries[i]);
-        }
-      }
-      setDisplayed(display);
-    }
-  }, [filterString])
-
-  const reset = (str) => {
-    if (str === searchString) {
-      setSearchString('');
-    } else {
-      setFilterString('');
-    }
-  }
+  const handleFilterSearch = () => {
+    const filteredCountries = countries.filter( country => {
+      let name = country.name.toLowerCase();
+      let region = country.region.toLowerCase();
+      if (searchString && filterString) return (name.includes(searchString) && region === filterString)
+      else if (searchString && !filterString) return name.includes(searchString)
+      else if (!searchString && filterString) return region === filterString
+      else return country;
+    });
+    setDisplayed(filteredCountries);
+  };
 
   return(
     <Router>
       <Nav darkMode={darkMode} setDarkMode={setDarkMode} />
       <div>
         <Switch>
-
           <Route path="/:id" component={CountryDetail} />
-
           <Route path="/">
             <div id="filter-search">
-              <Search searchString={searchString} setSearchString={setSearchString} resetSearch={reset} />
-              <Filter filterString={filterString} setFilterString={setFilterString} resetFilter={reset} />
+              <Search searchString={searchString} setSearchString={setSearchString} />
+              <Filter filterString={filterString} setFilterString={setFilterString} />
             </div>
             <div id="countries">
-              { displayed.length ? displayed.map(country => {
+              { (!displayed.length && searchString) ? <p>Country not found...</p> :
+                displayed.length ? displayed.map(country => {
                 return  <Link to={{pathname:`/${country.name}`, state: { country }}} key={country.alpha3Code} > <CountryCard key={country.name} countryData={country}/></Link>
               }) : <p>Loading...</p>}
             </div>
           </Route>
-
         </Switch>
       </div>
     </Router>

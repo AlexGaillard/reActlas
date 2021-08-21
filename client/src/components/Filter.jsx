@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
-const Filter = ({ filterString, setFilterString, resetFilter }) => {
+const Filter = ({ handleFilterSearch, filterString, setFilterString }) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -16,7 +16,7 @@ const Filter = ({ filterString, setFilterString, resetFilter }) => {
 
   const reset = () => {
     setIsOpen(false)
-    resetFilter();
+    setFilterString('');
   }
 
   const options = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
