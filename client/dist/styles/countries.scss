@@ -8,7 +8,7 @@
   row-gap: 5em;
   position: relative;
 
-  .loader {
+  .loader, .not-found {
     grid-row: 1;
     grid-column-start: 1;
     grid-column-end: 5;

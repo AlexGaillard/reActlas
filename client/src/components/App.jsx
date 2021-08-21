@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getAllCountries } from '../requests.js';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner, faExclamation } from '@fortawesome/free-solid-svg-icons';
 import CountryCard from './CountryCard.jsx';
 import Nav from './Nav.jsx';
 import Search from './Search.jsx';
@@ -59,7 +59,7 @@ const App = () => {
               <Filter filterString={filterString} setFilterString={setFilterString} />
             </div>
             <div id="countries">
-              { (!displayed.length && searchString) ? <p>Country not found...</p> :
+              { (!displayed.length && searchString) ? <div className="not-found"><FontAwesomeIcon icon={faExclamation} /> <p>Country not found</p></div> :
                 displayed.length ? displayed.map(country => {
                 return  <Link to={{pathname:`/${country.name}`, state: { country }}} key={country.alpha3Code} > <CountryCard key={country.name} countryData={country}/></Link>
               }) : <div className="loader"><FontAwesomeIcon icon={faSpinner} spin /> <p>Loading...</p></div>}
