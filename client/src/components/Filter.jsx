@@ -1,26 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faTimesCircle, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 const Filter = ({ filterString, setFilterString, resetFilter }) => {
 
-  const handleChange = (e) => {
-    setFilterString(e.target.value);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggling = () => setIsOpen(!isOpen);
+
+  const handleClick = (e) => {
+    let value = e.target.innerText;
+    setFilterString(value.toLowerCase());
+    setIsOpen(false);
   };
+
+  const reset = () => {
+    setIsOpen(false)
+    resetFilter();
+  }
+
+  const options = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
   return(
     <>
-    <div id="filter">
-      {filterString && <FontAwesomeIcon icon={faTimesCircle} onClick={resetFilter} />}
-      <select name="filter" onChange={handleChange} value={filterString}>
-        <option hidden>Filter by Region</option>
-        <option value="africa">Africa</option>
-        <option value="americas">Americas</option>
-        <option value="asia">Asia</option>
-        <option value="europe">Europe</option>
-        <option value="oceania">Oceania</option>
-      </select>
-    </div>
+      <div className="filter-container">
+
+        <div className="filter-header" onClick={toggling}>
+          {filterString.charAt(0).toUpperCase() + filterString.slice(1) || "Filter by region..."}
+          {isOpen ?
+            <FontAwesomeIcon className={filterString && 'filtered'} icon={faChevronUp} /> :
+            <FontAwesomeIcon className={filterString && 'filtered'} icon={faChevronDown} />
+          }
+        </div>
+        {filterString && <FontAwesomeIcon icon={faTimesCircle} onClick={reset} />}
+        {isOpen && (
+        <div className="filter-list-container">
+          <ul className="filter-list">
+          {options.map(option => (
+            <li className="list-item" onClick={handleClick} key={Math.random()}>
+                {option}
+            </li>
+          ))}
+          </ul>
+        </div>
+        )}
+      </div>
     </>
   );
 
