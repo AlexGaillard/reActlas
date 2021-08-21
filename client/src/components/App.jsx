@@ -57,7 +57,8 @@ const App = () => {
               <Filter filterString={filterString} setFilterString={setFilterString} />
             </div>
             <div id="countries">
-              { displayed.length ? displayed.map(country => {
+              { (!displayed.length && searchString) ? <p>Country not found...</p> :
+                displayed.length ? displayed.map(country => {
                 return  <Link to={{pathname:`/${country.name}`, state: { country }}} key={country.alpha3Code} > <CountryCard key={country.name} countryData={country}/></Link>
               }) : <p>Loading...</p>}
             </div>
