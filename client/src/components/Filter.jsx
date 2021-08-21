@@ -5,13 +5,11 @@ import { faTimesCircle, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 const Filter = ({ filterString, setFilterString, resetFilter }) => {
 
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
 
   const toggling = () => setIsOpen(!isOpen);
 
   const handleClick = (e) => {
     let value = e.target.innerText;
-    setSelectedOption(value);
     setFilterString(value.toLowerCase());
     setIsOpen(false);
   };
@@ -19,7 +17,6 @@ const Filter = ({ filterString, setFilterString, resetFilter }) => {
   const reset = () => {
     setIsOpen(false)
     resetFilter();
-    setSelectedOption(null);
   }
 
   const options = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
@@ -28,7 +25,7 @@ const Filter = ({ filterString, setFilterString, resetFilter }) => {
     <>
       <div className="filter-container">
 
-        <div className="filter-header" onClick={toggling}>{selectedOption || "Filter by region..."}{isOpen ? <FontAwesomeIcon icon={faChevronDown} rotation={180} /> : <FontAwesomeIcon icon={faChevronDown} />}</div>{filterString && <FontAwesomeIcon icon={faTimesCircle} onClick={reset} />}
+        <div className="filter-header" onClick={toggling}>{filterString.charAt(0).toUpperCase() + filterString.slice(1) || "Filter by region..."}{isOpen ? <FontAwesomeIcon icon={faChevronDown} rotation={180} /> : <FontAwesomeIcon icon={faChevronDown} />}</div>{filterString && <FontAwesomeIcon icon={faTimesCircle} onClick={reset} />}
         {isOpen && (
         <div className="filter-list-container">
           <ul className="filter-list">
