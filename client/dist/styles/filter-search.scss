@@ -46,54 +46,89 @@
 
   }
 
-  .drop-down-container {
-    width: 10.5em;
-    margin: 0 auto;
-  }
+  .filter-container {
+    transition: 1s;
+    background-color: $light-elements;
+    width: 12vw;
+    border-radius: .5em;
+    box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
+    display: flex;
+    align-items: center;
+    position: relative;
 
-  .drop-down-header {
-    position: absolute;
-    margin-bottom: 0.8em;
-    padding: 0.4em 2em 0.4em 1em;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
-    font-weight: 500;
-    font-size: 1.3rem;
-    color: #3faffa;
-    background: #ffffff;
-  }
+    &:hover {
+      box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.2);
+    }
 
-  .drop-down-list {
-    padding: 0;
-    margin: 0;
-    padding-left: 1em;
-    background: #ffffff;
-    border: 2px solid #e5e5e5;
-    box-sizing: border-box;
-    color: #3faffa;
-    font-size: 1.3rem;
-    font-weight: 500;
-    &:first-child {
-      padding-top: 0.8em;
+    svg {
+      cursor: pointer;
+      margin-left: 1em;
+      opacity: .5;
+
+      &:hover {
+        opacity: .7;
+      };
+    }
+
+    .filter-header {
+      cursor: pointer;
+      position: absolute;
+      padding: 1em 3em 1em 0;
+      left: 1.5em;
+      margin-left: 1em;
+    }
+
+    .filter-list-container {
+      position: relative;
+
+      .filter-list {
+        width: 12vw;
+        z-index: 2;
+        top: 1.5em;
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        padding-left: 1em;
+        background: $light-elements;
+        border-radius: .5em;
+        box-sizing: border-box;
+        box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
+
+        &:first-child {
+          padding-top: 0.8em;
+        }
+
+        .list-item {
+          cursor: pointer;
+          list-style: none;
+          margin-bottom: 0.8em;
+
+          &:hover {
+
+          }
+        }
+      }
     }
   }
 
-  .list-item {
-    list-style: none;
-    margin-bottom: 0.8em;
-  }
+
+
+
+
+
 
 
 }
 
 // #filter {
-//   transition: 1s;
-//   background-color: $light-elements;
-//   width: 12vw;
-//   padding: 1em;
-//   border-radius: .5em;
-//   box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
-//   display: flex;
-//   align-items: center;
+  // transition: 1s;
+  // background-color: $light-elements;
+  // width: 12vw;
+  // padding: 1em;
+  // border-radius: .5em;
+  // box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
+  // display: flex;
+  // align-items: center;
 
 //   &:hover {
 //     box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.2);

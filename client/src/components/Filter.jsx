@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faTimesCircle, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 const Filter = ({ filterString, setFilterString, resetFilter }) => {
 
@@ -16,15 +16,21 @@ const Filter = ({ filterString, setFilterString, resetFilter }) => {
     setIsOpen(false);
   };
 
+  const reset = () => {
+    resetFilter();
+    setSelectedOption(null);
+  }
+
   const options = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
   return(
     <>
-      <div className="drop-down-container">
-        <div className="drop-down-header" onClick={toggling}>{selectedOption || "Filter by region..."}{filterString && <FontAwesomeIcon icon={faTimesCircle} onClick={resetFilter} />}</div>
+      <div className="filter-container">
+        {filterString && <FontAwesomeIcon icon={faTimesCircle} onClick={reset} />}
+        <div className="filter-header" onClick={toggling}>{selectedOption || "Filter by region..."}</div>
         {isOpen && (
-        <div className="drop-down-list-container">
-          <ul className="drop-down-list">
+        <div className="filter-list-container">
+          <ul className="filter-list">
           {options.map(option => (
             <li className="list-item" onClick={handleClick} key={Math.random()}>
                 {option}
