@@ -27,10 +27,7 @@ const Filter = ({ handleFilterSearch, filterString, setFilterString }) => {
 
         <div className="filter-header" onClick={toggling}>
           {filterString.charAt(0).toUpperCase() + filterString.slice(1) || "Filter by region..."}
-          {isOpen ?
-            <FontAwesomeIcon className={filterString && 'filtered'} icon={faChevronUp} /> :
-            <FontAwesomeIcon className={filterString && 'filtered'} icon={faChevronDown} />
-          }
+          <FontAwesomeIcon className={filterString && 'filtered'} icon={isOpen ? faChevronUp : faChevronDown} />
         </div>
         {filterString && <FontAwesomeIcon icon={faTimesCircle} onClick={reset} />}
         {isOpen && (

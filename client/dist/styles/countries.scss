@@ -6,6 +6,25 @@
   justify-content: space-between;
   column-gap: 6%;
   row-gap: 5em;
+  position: relative;
+
+  .loader {
+    grid-row: 1;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    color: $light-text-opaque;
+
+    svg {
+      display: block;
+      margin: auto;
+      font-size: 2em;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.5em;
+    }
+  }
 
   .country {
     background-color: $light-elements;
