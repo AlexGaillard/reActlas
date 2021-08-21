@@ -2,10 +2,10 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
-const Search = ({ searchString, setSearchString, resetSearch }) => {
+const Search = ({ handleFilterSearch, searchString, setSearchString }) => {
 
-  const reset = (e) => {
-    resetSearch(searchString);
+  const reset = () => {
+    setSearchString('')
   };
 
   const handleSubmit = (e) => {
