@@ -72,11 +72,15 @@
       width: 10vw;
       margin-left: 1em;
 
-      .fa-chevron-down {
+      .fa-chevron-down, .fa-chevron-up {
         cursor: pointer;
-        right: 1.5em;
+        right: 0;
         bottom: 1.2em;
         position: absolute;
+      }
+
+      .filtered {
+        right: 1.5em;
       }
     }
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faTimesCircle, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 const Filter = ({ filterString, setFilterString, resetFilter }) => {
 
@@ -26,9 +26,11 @@ const Filter = ({ filterString, setFilterString, resetFilter }) => {
       <div className="filter-container">
 
         <div className="filter-header" onClick={toggling}>
-          {filterString.charAt(0).toUpperCase() + filterString.slice(1) || "Filter by region..."}{isOpen ?
-          <FontAwesomeIcon icon={faChevronDown} rotation={180} /> :
-          <FontAwesomeIcon icon={faChevronDown} />}
+          {filterString.charAt(0).toUpperCase() + filterString.slice(1) || "Filter by region..."}
+          {isOpen ?
+            <FontAwesomeIcon className={filterString && 'filtered'} icon={faChevronUp} /> :
+            <FontAwesomeIcon className={filterString && 'filtered'} icon={faChevronDown} />
+          }
         </div>
         {filterString && <FontAwesomeIcon icon={faTimesCircle} onClick={reset} />}
         {isOpen && (
