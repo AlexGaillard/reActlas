@@ -25,7 +25,12 @@ const Filter = ({ filterString, setFilterString, resetFilter }) => {
     <>
       <div className="filter-container">
 
-        <div className="filter-header" onClick={toggling}>{filterString.charAt(0).toUpperCase() + filterString.slice(1) || "Filter by region..."}{isOpen ? <FontAwesomeIcon icon={faChevronDown} rotation={180} /> : <FontAwesomeIcon icon={faChevronDown} />}</div>{filterString && <FontAwesomeIcon icon={faTimesCircle} onClick={reset} />}
+        <div className="filter-header" onClick={toggling}>
+          {filterString.charAt(0).toUpperCase() + filterString.slice(1) || "Filter by region..."}{isOpen ?
+          <FontAwesomeIcon icon={faChevronDown} rotation={180} /> :
+          <FontAwesomeIcon icon={faChevronDown} />}
+        </div>
+        {filterString && <FontAwesomeIcon icon={faTimesCircle} onClick={reset} />}
         {isOpen && (
         <div className="filter-list-container">
           <ul className="filter-list">

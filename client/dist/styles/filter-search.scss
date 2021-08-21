@@ -69,12 +69,12 @@
       cursor: pointer;
       position: absolute;
       padding: 1em 1em 1em 0;
-      width: 11vw;
-      margin-left: 2em;
+      width: 10vw;
+      margin-left: 1em;
 
       .fa-chevron-down {
         cursor: pointer;
-        right: 2.5em;
+        right: 1.5em;
         bottom: 1.2em;
         position: absolute;
       }
@@ -83,7 +83,7 @@
     .fa-times-circle {
       cursor: pointer;
       position: absolute;
-      left: .5em;
+      right: .7em;
       font-size: 1rem;
 
       &:hover {
