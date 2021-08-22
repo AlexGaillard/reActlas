@@ -39,8 +39,8 @@ const App = () => {
     const filteredCountries = countries.filter( country => {
       let name = country.name.toLowerCase();
       let region = country.region.toLowerCase();
-      if (searchString && filterString) return (name.includes(searchString) && region === filterString)
-      else if (searchString && !filterString) return name.includes(searchString)
+      if (searchString && filterString) return (name.includes(searchString.toLowerCase()) && region === filterString)
+      else if (searchString && !filterString) return name.includes(searchString.toLowerCase())
       else if (!searchString && filterString) return region === filterString
       else return country;
     });
