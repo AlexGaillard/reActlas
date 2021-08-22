@@ -8,13 +8,13 @@ const CountryCard = ({ countryData }) => {
   }
 
   return (
-    <div className="country">
-      <img src={ countryData.flag }></img>
+    <div className="country" aria-label={`See more details about ${countryData.name}`}>
+      <img src={ countryData.flag } alt={`Flag of ${countryData.name}`}></img>
       <div>
         <h3>{ countryData.name }</h3>
-        <p><b>Population:</b> { parsePopulation() }</p>
-        <p><b>Region:</b> { countryData.region }</p>
-        <p><b>Capital:</b> { countryData.capital }</p>
+        <p><span>Population:</span> { parsePopulation() }</p>
+        <p><span>Region:</span> { countryData.region }</p>
+        <p><span>Capital:</span> { countryData.capital }</p>
       </div>
     </div>
   )

@@ -22,7 +22,7 @@
       background-color: $light-elements;
       padding: 1em;
       width: 28vw;
-      border-radius: .5em;
+      border-radius: .3em;
       border: none;
       box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
       font-family: 'Nunito Sans';
@@ -31,12 +31,9 @@
         width: unset;
       }
 
-      &:hover {
-        box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.2);
-      }
-
       svg {
-        color: $light-text-opaque;
+        color: $light-text;
+        opacity: .5;
       }
 
       .fa-search {
@@ -58,7 +55,7 @@
         cursor: pointer;
 
         &:hover {
-          color: $light-text;
+          opacity: 1;
         }
       }
 
@@ -69,11 +66,11 @@
     font-family: 'Nunito Sans';
     font-weight: 600;
     font-size: 0.833em;
-    color: $light-text-opaque;
+    color: $light-text;
     transition: 1s;
     background-color: $light-elements;
     width: 13vw;
-    border-radius: .5em;
+    border-radius: .3em;
     box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
     display: flex;
     align-items: center;
@@ -97,6 +94,7 @@
       padding: 1em 1em 1em 0;
       width: 10vw;
       margin-left: 1em;
+      font-weight: 600;
 
       @include mobile {
         width: 40vw;
@@ -119,9 +117,10 @@
       position: absolute;
       right: .7em;
       font-size: 1rem;
+      opacity: .5;
 
       &:hover {
-        color: $light-text;
+        opacity: 1;
       }
     }
 
@@ -131,13 +130,13 @@
       .filter-list {
         width: 13vw;
         z-index: 2;
-        top: 2em;
+        top: 2.1em;
         position: absolute;
         padding: 0;
         margin: 0;
         padding-left: 1em;
         background: $light-elements;
-        border-radius: .5em;
+        border-radius: .3em;
         box-sizing: border-box;
         box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
 
@@ -153,6 +152,7 @@
           cursor: pointer;
           list-style: none;
           margin-bottom: 0.8em;
+          font-weight: 600;
 
           &:hover {
             font-weight: 800;

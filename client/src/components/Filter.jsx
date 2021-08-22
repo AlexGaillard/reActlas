@@ -23,10 +23,10 @@ const Filter = ({ handleFilterSearch, filterString, setFilterString }) => {
 
   return(
     <>
-      <div className="filter-container">
+      <div className="filter-container" aria-label="Filter by region">
 
         <div className="filter-header" onClick={toggling}>
-          {filterString.charAt(0).toUpperCase() + filterString.slice(1) || "Filter by region..."}
+          {filterString.charAt(0).toUpperCase() + filterString.slice(1) || "Filter by Region"}
           <FontAwesomeIcon className={filterString && 'filtered'} icon={isOpen ? faChevronUp : faChevronDown} />
         </div>
         {filterString && <FontAwesomeIcon icon={faTimesCircle} onClick={reset} />}

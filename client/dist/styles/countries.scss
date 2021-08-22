@@ -17,7 +17,8 @@
     grid-row: 1;
     grid-column-start: 1;
     grid-column-end: 5;
-    color: $light-text-opaque;
+    color: $light-text;
+    opacity: .8;
 
     svg {
       display: block;
@@ -57,6 +58,10 @@
 
       p {
         margin: 0;
+      }
+
+      span {
+        font-weight: 600;
       }
     }
   }

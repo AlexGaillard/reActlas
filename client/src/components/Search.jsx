@@ -19,7 +19,7 @@ const Search = ({ handleFilterSearch, searchString, setSearchString }) => {
   return(
     <>
     <div className="search-container">
-      <form onSubmit={handleSubmit} autoComplete="off">
+      <form onSubmit={handleSubmit} autoComplete="off" aria-label="Search Country by name...">
         <FontAwesomeIcon icon={faSearch} />
         <input type="text" id ="search" name="search" placeholder="Search for a country..." onChange={handleChange} value={searchString}>
         </input>

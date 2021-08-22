@@ -33,19 +33,19 @@ const CountryDetail = (props) => {
   return(
     <div id="country-details">
        <button className="back-button" type="button" onClick={handleClick}><FontAwesomeIcon icon={faLongArrowAltLeft} /> Back</button>
-      <img src={ country.flag }></img>
+      <img src={ country.flag } alt={`Flag of ${country.name}`}></img>
       <div>
         <h3>{ country.name }</h3>
         <ul className="details-left">
-          <li><b>Native Name:</b> { country.nativeName }</li>
-          <li><b>Population:</b> { parsePopulation() }</li>
-          <li><b>Region:</b> { country.region }</li>
-          <li><b>Sub Region:</b> { country.subregion }</li>
-          <li><b>Capital:</b> { country.capital }</li>
+          <li><span>Native Name:</span> { country.nativeName }</li>
+          <li><span>Population:</span> { parsePopulation() }</li>
+          <li><span>Region:</span> { country.region }</li>
+          <li><span>Sub Region:</span> { country.subregion }</li>
+          <li><span>Capital:</span> { country.capital }</li>
         </ul>
         <ul className="details-right">
-          <li><b>Top Level Domain:</b> { country.topLevelDomain }</li>
-          <li><b>Currencies:</b> { country.currencies.map((currency, index) => {
+          <li><span>Top Level Domain:</span> { country.topLevelDomain }</li>
+          <li><span>Currencies:</span> { country.currencies.map((currency, index) => {
               if (country.currencies.length > 1) {
                 if (index !== country.currencies.length - 1) return currency.name + ', '
                 else return currency.name;
@@ -53,7 +53,7 @@ const CountryDetail = (props) => {
               else return currency.name;
               }) }
           </li>
-          <li><b>Languages:</b> { country.languages.map((language, index) => {
+          <li><span>Languages:</span> { country.languages.map((language, index) => {
                 if (country.languages.length > 1) {
                   if (index !== country.languages.length - 1) return language.name + ', '
                   else return language.name;
@@ -62,7 +62,7 @@ const CountryDetail = (props) => {
                }) }
           </li>
         </ul>
-        <div><p><b>Border Countries:</b></p> { country.borders.length ?
+        <div><p><span>Border Countries:</span></p> { country.borders.length ?
                 borders.map(border => {
                   let country = border;
                   return <Link to={{pathname:`/${country.name}`, state: {country}}} key={border.name}><button>{ border.name }</button></Link>
