@@ -36,14 +36,14 @@ const CountryDetail = (props) => {
       <img src={ country.flag }></img>
       <div>
         <h3>{ country.name }</h3>
-        <ul>
+        <ul className="details-left">
           <li><b>Native Name:</b> { country.nativeName }</li>
           <li><b>Population:</b> { parsePopulation() }</li>
           <li><b>Region:</b> { country.region }</li>
           <li><b>Sub Region:</b> { country.subregion }</li>
           <li><b>Capital:</b> { country.capital }</li>
         </ul>
-        <ul>
+        <ul className="details-right">
           <li><b>Top Level Domain:</b> { country.topLevelDomain }</li>
           <li><b>Currencies:</b> { country.currencies.map((currency, index) => {
               if (country.currencies.length > 1) {

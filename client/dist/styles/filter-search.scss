@@ -99,7 +99,7 @@
       margin-left: 1em;
 
       @include mobile {
-        width: unset;
+        width: 40vw;
       }
 
       .fa-chevron-down, .fa-chevron-up {
