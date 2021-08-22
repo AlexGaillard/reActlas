@@ -9,31 +9,11 @@ const getAllCountries = () => {
   return axios(options);
 };
 
-const getRegionCountries = (region) => {
-  let options = {
-    method: 'get',
-    url: 'https://restcountries.eu/rest/v2/region',
-    params: { 'region': region }
-  }
-
-  return axios(options);
-};
-
-const searchCountries = (searchString) => {
-  let options = {
-    method: 'get',
-    url: 'https://restcountries.eu/rest/v2/search',
-    params: { 'searchString': searchString }
-  }
-
-  return axios(options);
-};
-
 const getBorders = (searchString) => {
   let options = {
     method: 'get',
-    url: 'https://restcountries.eu/rest/v2/borders',
-    params: { 'searchString': searchString }
+    url: 'https://restcountries.eu/rest/v2/alpha',
+    params: { 'codes': searchString }
   }
 
   return axios(options)
@@ -41,7 +21,5 @@ const getBorders = (searchString) => {
 
 module.exports = {
   getAllCountries,
-  getRegionCountries,
-  searchCountries,
   getBorders
 }
