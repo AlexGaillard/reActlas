@@ -47,6 +47,10 @@ body.dark {
       background-color: $dark-elements !important;
       color: $dark-text;
       box-shadow: 1px 1px 4px 2px rgba(0%, 0%, 0%, 0.1);
+
+      &:hover {
+        box-shadow: 1px 1px 4px 2px rgba(0%, 0%, 0%, 0.3);
+      }
     }
   }
 

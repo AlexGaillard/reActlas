@@ -8,6 +8,11 @@ const port = 3000;
 app.use(express.static('client/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://18.118.2.28"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.get('/all', async(req, res) => {
   let response = await getAllCountries();

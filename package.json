@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon",
     "build": "npx webpack -w",
-    "build-production": "npx webpack --mode=production -w"
+    "build-prod": "npx webpack --mode=production -w"
   },
   "repository": {
     "type": "git",
