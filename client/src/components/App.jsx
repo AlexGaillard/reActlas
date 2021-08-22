@@ -50,7 +50,7 @@ const App = () => {
   return(
     <Router>
       <Nav darkMode={darkMode} setDarkMode={setDarkMode} />
-      <div>
+      <div id="container">
         <Switch>
           <Route path="/:id" component={CountryDetail} />
           <Route path="/">
