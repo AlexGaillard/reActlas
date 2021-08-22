@@ -3,83 +3,164 @@
   justify-content: space-between;
   margin-bottom: 3em;
 
-  form {
-    display: flex;
+  @include mobile {
+    display: grid;
+    grid-row-gap: 2.5em;
+  }
+
+  .search-container {
+
+    @include mobile {
+      grid-row: 1;
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+
+    form {
+      display: flex;
+      transition: 1s;
+      background-color: $light-elements;
+      padding: 1em;
+      width: 28vw;
+      border-radius: .3em;
+      border: none;
+      box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
+      font-family: 'Nunito Sans';
+
+      @include mobile {
+        width: unset;
+      }
+
+      svg {
+        color: $light-text;
+        opacity: .5;
+      }
+
+      .fa-search {
+        margin-right: .5em;
+      }
+
+      input {
+        transition: 1s;
+        width: 85%;
+        border: none;
+
+        &:focus-visible {
+          outline: none;
+        }
+      }
+
+      .fa-times-circle {
+        margin-left: .5em;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+    }
+  }
+
+  .filter-container {
+    font-family: 'Nunito Sans';
+    font-weight: 600;
+    font-size: 0.833em;
+    color: $light-text;
     transition: 1s;
     background-color: $light-elements;
-    padding: 1em;
-    width: 28vw;
-    border-radius: .5em;
-    border: none;
+    width: 13vw;
+    border-radius: .3em;
     box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    @include mobile {
+      width: 50vw;
+      grid-row: 2;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      height: 3.3em;
+    }
 
     &:hover {
       box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.2);
     }
 
-    svg {
-      opacity: .5;
+    .filter-header {
+      cursor: pointer;
+      position: absolute;
+      padding: 1em 1em 1em 0;
+      width: 10vw;
+      margin-left: 1em;
+      font-weight: 600;
 
-      &:hover {
-        opacity: .7;
+      @include mobile {
+        width: 40vw;
       }
-    }
 
-    .fa-search {
-      margin-right: .5em;
-    }
+      .fa-chevron-down, .fa-chevron-up {
+        cursor: pointer;
+        right: 0;
+        bottom: 1.2em;
+        position: absolute;
+      }
 
-    input {
-      transition: 1s;
-      width: 85%;
-      border: none;
-
-      &:focus-visible {
-        outline: none;
+      .filtered {
+        right: 1.5em;
       }
     }
 
     .fa-times-circle {
-      margin-left: .5em;
       cursor: pointer;
-    }
-
-  }
-
-  #filter {
-    transition: 1s;
-    background-color: $light-elements;
-    width: 12vw;
-    padding: 1em;
-    border-radius: .5em;
-    box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
-    display: flex;
-    align-items: center;
-
-    &:hover {
-      box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.2);
-    }
-
-    svg {
-      cursor: pointer;
-      margin-right: .5em;
+      position: absolute;
+      right: .7em;
+      font-size: 1rem;
       opacity: .5;
 
       &:hover {
-        opacity: .7;
-      };
-    };
-
-    select {
-      transition: 1s;
-      cursor: pointer;
-      height: 100%;
-      width: 100%;
-      border: none;
-      outline: none;
+        opacity: 1;
+      }
     }
 
-  }
+    .filter-list-container {
+      position: relative;
 
+      .filter-list {
+        width: 13vw;
+        z-index: 2;
+        top: 2.1em;
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        padding-left: 1em;
+        background: $light-elements;
+        border-radius: .3em;
+        box-sizing: border-box;
+        box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
+
+        @include mobile {
+          width: 50vw;
+        }
+
+        &:first-child {
+          padding-top: 0.8em;
+        }
+
+        .list-item {
+          cursor: pointer;
+          list-style: none;
+          margin-bottom: 0.8em;
+          font-weight: 600;
+
+          &:hover {
+            font-weight: 800;
+          }
+        }
+      }
+    }
+  }
 }
+
 

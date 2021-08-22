@@ -10,10 +10,26 @@ nav {
   margin-bottom: 3em;
   box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
 
+  @include mobile {
+    padding: 5% 5%;
+    margin-bottom: 2em;
+  }
+
+  h1 {
+
+    @include mobile {
+      font-size: 1em;
+    }
+  }
+
   p {
     margin: auto 0;
     cursor: pointer;
     font-weight: 600;
+
+    @include mobile {
+      font-size: .8em;
+    }
 
     svg {
       margin-right: .6em;

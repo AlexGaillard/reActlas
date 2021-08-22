@@ -4,12 +4,37 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-content: space-between;
-  column-gap: 5em;
+  column-gap: 6%;
   row-gap: 5em;
+  position: relative;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    margin: 0 12%;
+  }
+
+  .loader, .not-found {
+    grid-row: 1;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    color: $light-text;
+    opacity: .8;
+
+    svg {
+      display: block;
+      margin: auto;
+      font-size: 2em;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.5em;
+    }
+  }
 
   .country {
     background-color: $light-elements;
-    border-radius: .5em;
+    border-radius: .3em;
     width: auto;
     box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
     overflow: hidden;
@@ -33,6 +58,10 @@
 
       p {
         margin: 0;
+      }
+
+      span {
+        font-weight: 600;
       }
     }
   }

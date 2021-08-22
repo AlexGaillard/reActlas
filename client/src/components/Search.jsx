@@ -2,10 +2,10 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
-const Search = ({ searchString, setSearchString, resetSearch }) => {
+const Search = ({ handleFilterSearch, searchString, setSearchString }) => {
 
-  const reset = (e) => {
-    resetSearch(searchString);
+  const reset = () => {
+    setSearchString('')
   };
 
   const handleSubmit = (e) => {
@@ -18,8 +18,8 @@ const Search = ({ searchString, setSearchString, resetSearch }) => {
 
   return(
     <>
-    <div>
-      <form onSubmit={handleSubmit} autoComplete="off">
+    <div className="search-container">
+      <form onSubmit={handleSubmit} autoComplete="off" aria-label="Search Country by name...">
         <FontAwesomeIcon icon={faSearch} />
         <input type="text" id ="search" name="search" placeholder="Search for a country..." onChange={handleChange} value={searchString}>
         </input>
