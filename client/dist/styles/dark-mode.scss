@@ -12,6 +12,10 @@ body.dark {
       background-color: $dark-elements;
       color: $dark-text-opaque;
 
+      svg {
+        color: $dark-text-opaque;
+      }
+
       &::placeholder {
         color: $dark-text-opaque;
       }
@@ -20,6 +24,10 @@ body.dark {
     .filter-container, .filter-list {
       background-color: $dark-elements !important;
       color: $dark-text-opaque;
+    }
+
+    .fa-times-circle:hover {
+      color: $dark-text;
     }
   }
 
