@@ -4,37 +4,58 @@ body.dark {
   nav {
     background: $dark-elements;
     color: $dark-text;
+    box-shadow: 1px 1px 4px 2px rgba(0%, 0%, 0%, 0.1);
   }
 
   #filter-search {
 
+    .search-container, .filter-container {
+      box-shadow: 1px 1px 4px 2px rgba(0%, 0%, 0%, 0.1);
+    }
+
     form, input {
       background-color: $dark-elements;
-      color: $dark-text-opaque;
+      color: $dark-text;
+
+      svg {
+        color: $dark-text;
+      }
 
       &::placeholder {
-        color: $dark-text-opaque;
+        color: $dark-text;
       }
     }
 
-    #filter, select {
+    .filter-container, .filter-list {
       background-color: $dark-elements !important;
-      color: $dark-text-opaque;
+      color: $dark-text;
+    }
+
+    .fa-times-circle:hover {
+      color: $dark-text;
     }
   }
 
 
+  #countries {
 
-  .country {
-    background-color: $dark-elements !important;
-    color: $dark-text;
+    .loader, .not-found {
+      color: $dark-text;
+    }
+
+    .country {
+      background-color: $dark-elements !important;
+      color: $dark-text;
+      box-shadow: 1px 1px 4px 2px rgba(0%, 0%, 0%, 0.1);
+    }
   }
 
   #country-details {
 
     button {
       background-color: $dark-elements;
-      color: $dark-text-opaque;
+      color: $dark-text;
+      box-shadow: 1px 1px 4px 2px rgba(0%, 0%, 0%, 0.1);
     }
 
     div {
@@ -42,5 +63,4 @@ body.dark {
     }
 
   }
-
 }
