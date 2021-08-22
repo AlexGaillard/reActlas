@@ -3,7 +3,7 @@ const axios = require('axios');
 const getAllCountries = () => {
   let options = {
     method: 'get',
-    url: 'http://localhost:3000/all'
+    url: 'https://restcountries.eu/rest/v2/all'
   }
 
   return axios(options);
@@ -12,7 +12,7 @@ const getAllCountries = () => {
 const getRegionCountries = (region) => {
   let options = {
     method: 'get',
-    url: 'http://localhost:3000/region',
+    url: 'https://restcountries.eu/rest/v2/region',
     params: { 'region': region }
   }
 
@@ -22,7 +22,7 @@ const getRegionCountries = (region) => {
 const searchCountries = (searchString) => {
   let options = {
     method: 'get',
-    url: 'http://localhost:3000/search',
+    url: 'https://restcountries.eu/rest/v2/search',
     params: { 'searchString': searchString }
   }
 
@@ -32,7 +32,7 @@ const searchCountries = (searchString) => {
 const getBorders = (searchString) => {
   let options = {
     method: 'get',
-    url: 'http://localhost:3000/borders',
+    url: 'https://restcountries.eu/rest/v2/borders',
     params: { 'searchString': searchString }
   }
 
