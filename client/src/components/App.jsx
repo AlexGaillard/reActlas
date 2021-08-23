@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { getAllCountries } from '../requests.js';
-import { Switch, Route } from 'react-router-dom';
-import Homepage from './Homepage.jsx';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+// import Homepage from './Homepage.jsx';
 import Nav from './Nav.jsx';
 import CountryDetails from './CountryDetails.jsx';
 import Search from './Search.jsx';
 import Filter from './Filter.jsx';
+
+const Homepage = lazy(() => import("./Homepage.jsx"));
 
 const App = () => {
 
@@ -49,16 +51,20 @@ const App = () => {
     <>
       <Nav darkMode={ darkMode } setDarkMode={ setDarkMode } />
       <div id="container">
-        <Switch>
-          <Route path="/:id" component={ CountryDetails } />
-          <Route path="/" >
-            <div id="filter-search">
-              <Search searchString={ searchString } setSearchString={ setSearchString } />
-              <Filter filterString={ filterString } setFilterString={ setFilterString } />
-            </div>
-            <Homepage displayed={ displayed } searchString={ searchString } />
-          </Route>
-        </Switch>
+        <Suspense fallback={null}>
+          <Router>
+            <Switch>
+              <Route path="/:id" component={ CountryDetails } />
+              <Route path="/" >
+                <div id="filter-search">
+                  <Search searchString={ searchString } setSearchString={ setSearchString } />
+                  <Filter filterString={ filterString } setFilterString={ setFilterString } />
+                </div>
+                <Homepage displayed={ displayed } searchString={ searchString } />
+              </Route>
+            </Switch>
+          </Router>
+        </Suspense>
       </div>
     </>
   );
