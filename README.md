@@ -8,7 +8,19 @@ Installation:<br>
   • Run "npm run build-prod" (For production)<br>
   • Run "npm start"<br>
   
-  <hr>
+ <hr>
+  
+ The app features dynamic searching that is maintains state across page changes without refresh
+ 
+ ![reActlas (1)](https://user-images.githubusercontent.com/50185022/130476598-fd8b6c1b-6fa2-48e3-9bd5-973857b2c66a.gif)
+ 
+ <hr>
+  
+ Dark mode is also maintained across page changes without refresh
+ 
+ ![reActlas (2)](https://user-images.githubusercontent.com/50185022/130477244-fb72ac44-dcf1-4c04-9872-e551605b1785.gif)
+ 
+ <hr>
   
  Libraries & Frameworks:<br>
   • React.js<br>
