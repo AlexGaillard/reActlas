@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { getAllCountries } from '../requests.js';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner, faExclamation } from '@fortawesome/free-solid-svg-icons';
-import CountryCard from './CountryCard.jsx';
+import { Switch, Route } from 'react-router-dom';
+import Homepage from './Homepage.jsx';
 import Nav from './Nav.jsx';
+import CountryDetails from './CountryDetails.jsx';
 import Search from './Search.jsx';
 import Filter from './Filter.jsx';
-import CountryDetail from './CountryDetail.jsx';
 
 const App = () => {
 
@@ -39,8 +37,8 @@ const App = () => {
     const filteredCountries = countries.filter( country => {
       let name = country.name.toLowerCase();
       let region = country.region.toLowerCase();
-      if (searchString && filterString) return (name.includes(searchString) && region === filterString)
-      else if (searchString && !filterString) return name.includes(searchString)
+      if (searchString && filterString) return (name.includes(searchString.toLowerCase()) && region === filterString)
+      else if (searchString && !filterString) return name.includes(searchString.toLowerCase())
       else if (!searchString && filterString) return region === filterString
       else return country;
     });
@@ -48,28 +46,23 @@ const App = () => {
   };
 
   return(
-    <Router>
-      <Nav darkMode={darkMode} setDarkMode={setDarkMode} />
+    <>
+      <Nav darkMode={ darkMode } setDarkMode={ setDarkMode } />
       <div id="container">
         <Switch>
-          <Route path="/:id" component={CountryDetail} />
-          <Route path="/">
+          <Route path="/:id" component={ CountryDetails } />
+          <Route path="/" >
             <div id="filter-search">
-              <Search searchString={searchString} setSearchString={setSearchString} />
-              <Filter filterString={filterString} setFilterString={setFilterString} />
+              <Search searchString={ searchString } setSearchString={ setSearchString } />
+              <Filter filterString={ filterString } setFilterString={ setFilterString } />
             </div>
-            <div id="countries">
-              { (!displayed.length && searchString) ? <div className="not-found"><FontAwesomeIcon icon={faExclamation} /> <p>Country not found</p></div> :
-                displayed.length ? displayed.map(country => {
-                return  <Link to={{pathname:`/${country.name}`, state: { country }}} key={country.alpha3Code} > <CountryCard key={country.name} countryData={country}/></Link>
-              }) : <div className="loader"><FontAwesomeIcon icon={faSpinner} spin /> <p>Loading...</p></div>}
-            </div>
+            <Homepage displayed={ displayed } searchString={ searchString } />
           </Route>
         </Switch>
       </div>
-    </Router>
+    </>
   );
 
-}
+};
 
 export default App;
