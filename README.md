@@ -21,6 +21,15 @@ Installation:<br>
  ![reActlas (2)](https://user-images.githubusercontent.com/50185022/130477244-fb72ac44-dcf1-4c04-9872-e551605b1785.gif)
  
  <hr>
+ 
+ Google Lighthouse stats:<br><br>
+ ![Screenshot_7](https://user-images.githubusercontent.com/50185022/130492131-12bd167e-7060-49be-87f5-c8c820b51092.png)
+  
+  
+ Pingdom Tools stats:<br><br>
+ ![Screenshot_5](https://user-images.githubusercontent.com/50185022/130468675-07f37d95-3f41-45c8-961e-ac93dbe8bd5f.png)
+  
+ <hr>
   
  Libraries & Frameworks:<br>
   • React.js<br>
@@ -28,13 +37,4 @@ Installation:<br>
   • Express<br>
   • SCSS<br>
   • Axios<br>
-  
-  <hr>
-  
-  Google Lighthouse stats:<br><br>
-  ![Screenshot_4](https://user-images.githubusercontent.com/50185022/130467608-efcedf5a-f116-4ce3-a1ce-1699bb7575d8.png)
-  
-  Pingdom Tools stats:<br><br>
-  ![Screenshot_5](https://user-images.githubusercontent.com/50185022/130468675-07f37d95-3f41-45c8-961e-ac93dbe8bd5f.png)
-  
-  
+
