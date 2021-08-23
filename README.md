@@ -23,8 +23,8 @@ Installation:<br>
  <hr>
  
  Google Lighthouse stats:<br><br>
- ![Screenshot_9](https://user-images.githubusercontent.com/50185022/130495579-629cb128-448b-4a07-9b81-6627b661ae12.png)
-  
+![Screenshot_10](https://user-images.githubusercontent.com/50185022/130500887-c5bd489f-83c6-49fe-8617-fe5c460655d5.png)
+
   
  Pingdom Tools stats:<br><br>
  ![Screenshot_5](https://user-images.githubusercontent.com/50185022/130468675-07f37d95-3f41-45c8-961e-ac93dbe8bd5f.png)
