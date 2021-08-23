@@ -1,13 +1,13 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { getAllCountries } from '../requests.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-// import Homepage from './Homepage.jsx';
 import Nav from './Nav.jsx';
-import CountryDetails from './CountryDetails.jsx';
+// import CountryDetails from './CountryDetails.jsx';
 import Search from './Search.jsx';
 import Filter from './Filter.jsx';
 
 const Homepage = lazy(() => import("./Homepage.jsx"));
+const CountryDetails = lazy(() => import("./CountryDetails.jsx"));
 
 const App = () => {
 
