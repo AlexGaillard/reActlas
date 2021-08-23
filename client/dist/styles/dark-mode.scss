@@ -29,6 +29,10 @@ body.dark {
     .filter-container, .filter-list {
       background-color: $dark-elements !important;
       color: $dark-text;
+
+      .list-item:hover {
+        color: $dark-text !important;
+      }
     }
 
     .fa-times-circle:hover {
