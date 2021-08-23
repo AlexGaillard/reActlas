@@ -6,6 +6,7 @@ Installation:<br>
   • Run "npm install"<br>
   • Run "npm run build" (For development)<br>
   • Run "npm run build-prod" (For production)<br>
+  • Run "npm start"<br>
   
   <hr>
   
