@@ -21,7 +21,7 @@ const CountryDetails = (props) => {
         setBorders(res.data);
       });
     }
-  }, [country]);
+  }, []);
 
   const handleClick = () => {
     history.push("/");
