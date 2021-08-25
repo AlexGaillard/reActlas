@@ -3,6 +3,7 @@ import NotFound from "./Homepage/NotFound.jsx";
 import { Helmet } from "react-helmet";
 import DisplayCountries from "./Homepage/DisplayCountries.jsx";
 import Loading from "./Homepage/Loading.jsx";
+import BackToTop from "./Homepage/BackToTop.jsx";
 
 const Homepage = ({ displayed, searchString, darkMode }) => {
   return (
@@ -21,6 +22,7 @@ const Homepage = ({ displayed, searchString, darkMode }) => {
       ) : (
         <Loading />
       )}
+      <BackToTop />
     </div>
   );
 };

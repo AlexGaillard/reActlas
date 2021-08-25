@@ -21,7 +21,7 @@ body {
       color: inherit;
     }
 
-    button {
+    button:not(#back-to-top) {
       border: none;
       background-color: $light-elements;
       border-radius: 0.5em;
@@ -37,6 +37,27 @@ body {
     #container {
       grid-column: 2;
       grid-row: 2;
+    }
+
+    #back-to-top {
+      position: fixed;
+      color: $light-text;
+      bottom: 1em;
+      right: 1em;
+      background-color: hsla(0, 0, 0, 0);
+      border: none;
+      font-size: 2.5em;
+      cursor: pointer;
+      transition: transform 300ms, color 1000ms;
+
+      @include mobile {
+        bottom: 0.2em;
+        right: 0.2em;
+      }
+
+      &:hover {
+        transform: translateY(-10px);
+      }
     }
   }
 }
