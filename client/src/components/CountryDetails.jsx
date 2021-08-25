@@ -3,7 +3,7 @@ import { getBorders } from "../requests.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLongArrowAltLeft } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import DetailsLeft from "./CountryDetails/DetailsLeft.jsx";
 import DetailsRight from "./CountryDetails/DetailsRight.jsx";
 import BorderCountries from "./CountryDetails/BorderCountries.jsx";

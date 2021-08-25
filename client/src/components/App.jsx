@@ -51,7 +51,7 @@ const App = () => {
 
   return (
     <>
-      <Helmet bodyAttributes={ darkMode && {class: 'dark'}} />
+      <Helmet bodyAttributes={darkMode && { class: "dark" }} />
       <Nav darkMode={darkMode} setDarkMode={setDarkMode} />
       <div id="container">
         <Suspense fallback={null}>
@@ -69,7 +69,11 @@ const App = () => {
                     setFilterString={setFilterString}
                   />
                 </div>
-                <Homepage displayed={displayed} searchString={searchString} darkMode={darkMode} />
+                <Homepage
+                  displayed={displayed}
+                  searchString={searchString}
+                  darkMode={darkMode}
+                />
               </Route>
             </Switch>
           </Router>
