@@ -1,7 +1,7 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import { getAllCountries } from "../requests.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import Nav from "./Nav.jsx";
 import Search from "./Search.jsx";
 import Filter from "./Filter.jsx";
