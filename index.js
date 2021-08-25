@@ -6,6 +6,10 @@ const port = 3000;
 app.use(express.static('client/public'));
 app.use(express.static('client/dist'));
 
+app.get('/*', (req, res) => {
+  res.redirect('/')
+})
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://18.118.2.28");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
