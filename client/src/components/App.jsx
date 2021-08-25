@@ -17,21 +17,15 @@ const App = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    if (!countries.length) {
-      getAllCountries().then((res) => {
-        setCountries(res.data);
-        setDisplayed(res.data);
-      });
-    }
-  }, [countries]);
+    getAllCountries().then((res) => {
+      setCountries(res.data);
+      setDisplayed(res.data);
+    });
+  }, []);
 
   useEffect(() => {
     handleFilterSearch();
-  }, [searchString]);
-
-  useEffect(() => {
-    handleFilterSearch();
-  }, [filterString]);
+  }, [searchString, filterString]);
 
   const handleFilterSearch = () => {
     const filteredCountries = countries.filter((country) => {
