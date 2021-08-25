@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-regular-svg-icons";
 import { faMoon as fasMoon } from "@fortawesome/free-solid-svg-icons";
@@ -14,6 +14,12 @@ const Nav = ({ darkMode, setDarkMode }) => {
       body.removeAttribute("class");
     }
   };
+
+  useEffect(() => {
+    const favicon = document.getElementById("favicon");
+    if (darkMode) favicon.href = "favicon_dark.png"
+    else favicon.href = "favicon_light.png"
+  }, [darkMode])
 
   return (
     <nav id="header">
