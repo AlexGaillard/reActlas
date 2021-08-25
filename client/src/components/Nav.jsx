@@ -4,22 +4,11 @@ import { faMoon } from "@fortawesome/free-regular-svg-icons";
 import { faMoon as fasMoon } from "@fortawesome/free-solid-svg-icons";
 
 const Nav = ({ darkMode, setDarkMode }) => {
-  const handleClick = () => {
-    let body = document.querySelector("body");
-    if (!darkMode) {
-      setDarkMode(true);
-      body.setAttribute("class", "dark");
-    } else {
-      setDarkMode(false);
-      body.removeAttribute("class");
-    }
-  };
 
-  useEffect(() => {
-    const favicon = document.getElementById("favicon");
-    if (darkMode) favicon.href = "favicon_dark.png"
-    else favicon.href = "favicon_light.png"
-  }, [darkMode])
+  const handleClick = () => {
+    if (!darkMode) setDarkMode(true)
+    else setDarkMode(false);
+  };
 
   return (
     <nav id="header">

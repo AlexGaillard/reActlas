@@ -1,6 +1,7 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import { getAllCountries } from "../requests.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {Helmet} from "react-helmet";
 import Nav from "./Nav.jsx";
 import Search from "./Search.jsx";
 import Filter from "./Filter.jsx";
@@ -50,6 +51,7 @@ const App = () => {
 
   return (
     <>
+      <Helmet bodyAttributes={ darkMode && {class: 'dark'}} />
       <Nav darkMode={darkMode} setDarkMode={setDarkMode} />
       <div id="container">
         <Suspense fallback={null}>
@@ -67,7 +69,7 @@ const App = () => {
                     setFilterString={setFilterString}
                   />
                 </div>
-                <Homepage displayed={displayed} searchString={searchString} />
+                <Homepage displayed={displayed} searchString={searchString} darkMode={darkMode} />
               </Route>
             </Switch>
           </Router>

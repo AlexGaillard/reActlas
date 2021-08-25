@@ -16,7 +16,6 @@ nav {
   }
 
   h1 {
-
     @include mobile {
       font-size: 1em;
     }
@@ -28,11 +27,11 @@ nav {
     font-weight: 600;
 
     @include mobile {
-      font-size: .8em;
+      font-size: 0.8em;
     }
 
     svg {
-      margin-right: .6em;
+      margin-right: 0.6em;
     }
   }
 }

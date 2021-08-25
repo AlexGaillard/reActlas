@@ -3,6 +3,7 @@ import { getBorders } from "../requests.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLongArrowAltLeft } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
+import {Helmet} from "react-helmet";
 import DetailsLeft from "./CountryDetails/DetailsLeft.jsx";
 import DetailsRight from "./CountryDetails/DetailsRight.jsx";
 import BorderCountries from "./CountryDetails/BorderCountries.jsx";
@@ -33,6 +34,9 @@ const CountryDetails = (props) => {
 
   return (
     <div id="country-details">
+      <Helmet>
+        <link id="favicon" rel="icon" href={country.flag} />
+      </Helmet>
       <button className="back-button" type="button" onClick={handleClick}>
         <FontAwesomeIcon icon={faLongArrowAltLeft} /> Back
       </button>
