@@ -1,18 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-regular-svg-icons";
 import { faMoon as fasMoon } from "@fortawesome/free-solid-svg-icons";
 
 const Nav = ({ darkMode, setDarkMode }) => {
   const handleClick = () => {
-    let body = document.querySelector("body");
-    if (!darkMode) {
-      setDarkMode(true);
-      body.setAttribute("class", "dark");
-    } else {
-      setDarkMode(false);
-      body.removeAttribute("class");
-    }
+    if (!darkMode) setDarkMode(true);
+    else setDarkMode(false);
   };
 
   return (
