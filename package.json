@@ -1,5 +1,5 @@
 {
-  "name": "reatlas",
+  "name": "reActlas",
   "version": "1.0.0",
   "description": "A country explorer built using React.js and the REST Countries API.",
   "main": "./index.js",
