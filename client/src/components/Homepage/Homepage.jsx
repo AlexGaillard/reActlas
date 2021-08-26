@@ -16,9 +16,9 @@ const Homepage = ({ countries, displayed, setDisplayed, darkMode }) => {
   return (
     <>
       <motion.div
-        initial="initial"
-        animate="in"
-        exit="initial"
+        initial="left"
+        animate="mid"
+        exit="left"
         variants={pageVariants}
         transition={pageTransition}
       >

@@ -1,13 +1,13 @@
 const pageVariants = {
-  initial: {
+  left: {
     opacity: 0,
     x: "-100vw",
   },
-  in: {
+  mid: {
     opacity: 1,
     x: 0,
   },
-  out: {
+  right: {
     opacity: 0,
     x: "100vw",
   },

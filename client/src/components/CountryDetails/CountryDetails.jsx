@@ -27,9 +27,9 @@ const CountryDetails = (props) => {
   return (
     <motion.div
       id="country-details"
-      initial="out"
-      animate="in"
-      exit="out"
+      initial="right"
+      animate="mid"
+      exit="right"
       variants={pageVariants}
       transition={pageTransition}
     >
