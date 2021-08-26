@@ -4,6 +4,7 @@ import SearchFilter from "./SearchFilter/SearchFilter.jsx";
 import NotFound from "./NotFound.jsx";
 import CountryList from "./CountryList.jsx";
 import Loading from "./Loading.jsx";
+import BackToTop from "./BackToTop.jsx";
 
 const Homepage = ({ countries, displayed, setDisplayed, darkMode }) => {
 
@@ -36,6 +37,7 @@ const Homepage = ({ countries, displayed, setDisplayed, darkMode }) => {
           <Loading />
         )}
       </div>
+      <BackToTop />
     </>
   );
 };
