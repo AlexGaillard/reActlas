@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
+import { motion } from "framer-motion";
 import SearchFilter from "./SearchFilter/SearchFilter.jsx";
 import NotFound from "./NotFound.jsx";
 import CountryList from "./CountryList.jsx";
 import Loading from "./Loading.jsx";
 import BackToTop from "./BackToTop.jsx";
+import { pageVariants, pageTransition } from "../../Animation.js";
 
 const Homepage = ({ countries, displayed, setDisplayed, darkMode }) => {
 
@@ -12,7 +14,13 @@ const Homepage = ({ countries, displayed, setDisplayed, darkMode }) => {
   const [filterString, setFilterString] = useState("");
 
   return (
-    <>
+    <motion.div
+      initial="initial"
+      animate="in"
+      exit="initial"
+      variants={pageVariants}
+      transition={pageTransition}
+    >
       <SearchFilter
         searchString={searchString}
         setSearchString={setSearchString}
@@ -38,7 +46,7 @@ const Homepage = ({ countries, displayed, setDisplayed, darkMode }) => {
         )}
       </div>
       <BackToTop />
-    </>
+    </motion.div>
   );
 };
 

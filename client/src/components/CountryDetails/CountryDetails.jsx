@@ -4,9 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLongArrowAltLeft } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { motion } from "framer-motion";
 import DetailsLeft from "./DetailsLeft.jsx";
 import DetailsRight from "./DetailsRight.jsx";
 import BorderCountries from "./BorderCountries.jsx";
+import { pageVariants, pageTransition } from "../../Animation.js";
+
 
 const CountryDetails = (props) => {
   let country = props.location.state.country || props.location.state.border;
@@ -33,7 +36,14 @@ const CountryDetails = (props) => {
   };
 
   return (
-    <div id="country-details">
+    <motion.div
+      id="country-details"
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+    >
       <Helmet>
         <link id="favicon" rel="icon" href={country.flag} />
       </Helmet>
@@ -57,7 +67,7 @@ const CountryDetails = (props) => {
         />
         <BorderCountries borders={borders} />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
