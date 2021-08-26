@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { getBorders } from "../requests.js";
+import { getBorders } from "../../requests.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLongArrowAltLeft } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import DetailsLeft from "./CountryDetails/DetailsLeft.jsx";
-import DetailsRight from "./CountryDetails/DetailsRight.jsx";
-import BorderCountries from "./CountryDetails/BorderCountries.jsx";
+import DetailsLeft from "./DetailsLeft.jsx";
+import DetailsRight from "./DetailsRight.jsx";
+import BorderCountries from "./BorderCountries.jsx";
 
 const CountryDetails = (props) => {
   let country = props.location.state.country || props.location.state.border;
