@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { getBorders } from "../../requests.js";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLongArrowAltLeft } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
@@ -12,19 +11,9 @@ import { pageVariants, pageTransition } from "../../Animation.js";
 
 
 const CountryDetails = (props) => {
-  let country = props.location.state.country || props.location.state.border;
-  const [borders, setBorders] = useState([]);
-  let history = useHistory();
 
-  useEffect(() => {
-    let queryString = "";
-    if (country.borders.length) {
-      country.borders.forEach((border) => (queryString += border + ";"));
-      getBorders(queryString).then((res) => {
-        setBorders(res.data);
-      });
-    }
-  }, []);
+  let country = props.location.state.country || props.location.state.border;
+  let history = useHistory();
 
   const handleClick = () => {
     history.push("/");
@@ -65,7 +54,7 @@ const CountryDetails = (props) => {
           currencies={country.currencies}
           languages={country.languages}
         />
-        <BorderCountries borders={borders} />
+        <BorderCountries countryBorders={country.borders} />
       </div>
     </motion.div>
   );

@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getBorders } from "../../requests.js";
 
-const BorderCountries = ({ borders }) => {
+const BorderCountries = ({ countryBorders }) => {
+
+  const [borders, setBorders] = useState([]);
+
+  useEffect(() => {
+    let queryString = "";
+    if (countryBorders.length) {
+      countryBorders.forEach((border) => (queryString += border + ";"));
+      getBorders(queryString).then((res) => {
+        setBorders(res.data);
+      });
+    }
+  }, []);
+
   return (
     <div>
       <p>
