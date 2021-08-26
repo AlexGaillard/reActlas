@@ -52,8 +52,8 @@ body {
       transition: transform 300ms, color 1000ms;
 
       @include mobile {
-        bottom: 0.2em;
-        right: 0.2em;
+        bottom: 0.1em;
+        right: 0.1em;
       }
 
       &:hover {

@@ -14,39 +14,41 @@ const Homepage = ({ countries, displayed, setDisplayed, darkMode }) => {
   const [filterString, setFilterString] = useState("");
 
   return (
-    <motion.div
-      initial="initial"
-      animate="in"
-      exit="initial"
-      variants={pageVariants}
-      transition={pageTransition}
-    >
-      <SearchFilter
-        searchString={searchString}
-        setSearchString={setSearchString}
-        filterString={filterString}
-        setFilterString={setFilterString}
-        countries={countries}
-        setDisplayed={setDisplayed}
-      />
-      <div id="countries">
-        <Helmet>
-          {darkMode ? (
-            <link id="favicon" rel="icon" href="favicon_dark.png" />
+    <>
+      <motion.div
+        initial="initial"
+        animate="in"
+        exit="initial"
+        variants={pageVariants}
+        transition={pageTransition}
+      >
+        <SearchFilter
+          searchString={searchString}
+          setSearchString={setSearchString}
+          filterString={filterString}
+          setFilterString={setFilterString}
+          countries={countries}
+          setDisplayed={setDisplayed}
+        />
+        <div id="countries">
+          <Helmet>
+            {darkMode ? (
+              <link id="favicon" rel="icon" href="favicon_dark.png" />
+            ) : (
+              <link id="favicon" rel="icon" href="favicon_light.png" />
+            )}
+          </Helmet>
+          {!displayed.length && searchString ? (
+            <NotFound />
+          ) : displayed.length ? (
+            <CountryList displayed={displayed} />
           ) : (
-            <link id="favicon" rel="icon" href="favicon_light.png" />
+            <Loading />
           )}
-        </Helmet>
-        {!displayed.length && searchString ? (
-          <NotFound />
-        ) : displayed.length ? (
-          <CountryList displayed={displayed} />
-        ) : (
-          <Loading />
-        )}
-      </div>
+        </div>
+      </motion.div>
       <BackToTop />
-    </motion.div>
+    </>
   );
 };
 

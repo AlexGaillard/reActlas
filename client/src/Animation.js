@@ -10,6 +10,12 @@ const pageVariants = {
   out: {
     opacity: 0,
     x: "100vw",
+  },
+  down: {
+    y: "20vh"
+  },
+  up: {
+    y: 0
   }
 }
 
@@ -19,7 +25,14 @@ const pageTransition = {
   duration: 1
 };
 
+const buttonTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: .8
+}
+
 module.exports = {
   pageVariants,
-  pageTransition
+  pageTransition,
+  buttonTransition
 }
