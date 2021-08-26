@@ -9,9 +9,7 @@ import DetailsRight from "./DetailsRight.jsx";
 import BorderCountries from "./BorderCountries.jsx";
 import { pageVariants, pageTransition } from "../../Animation.js";
 
-
 const CountryDetails = (props) => {
-
   let country = props.location.state.country || props.location.state.border;
   let history = useHistory();
 

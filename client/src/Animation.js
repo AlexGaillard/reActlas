@@ -12,27 +12,27 @@ const pageVariants = {
     x: "100vw",
   },
   down: {
-    y: "20vh"
+    y: "20vh",
   },
   up: {
-    y: 0
-  }
-}
+    y: 0,
+  },
+};
 
 const pageTransition = {
   type: "tween",
   ease: "anticipate",
-  duration: 1
+  duration: 1,
 };
 
 const buttonTransition = {
   type: "tween",
   ease: "anticipate",
-  duration: .8
-}
+  duration: 0.8,
+};
 
 module.exports = {
   pageVariants,
   pageTransition,
-  buttonTransition
-}
+  buttonTransition,
+};

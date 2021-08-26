@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { getBorders } from "../../requests.js";
 
 const BorderCountries = ({ countryBorders }) => {
-
   const [borders, setBorders] = useState([]);
 
   useEffect(() => {

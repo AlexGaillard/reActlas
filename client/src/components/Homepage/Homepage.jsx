@@ -9,7 +9,6 @@ import BackToTop from "./BackToTop.jsx";
 import { pageVariants, pageTransition } from "../../Animation.js";
 
 const Homepage = ({ countries, displayed, setDisplayed, darkMode }) => {
-
   const [searchString, setSearchString] = useState("");
   const [filterString, setFilterString] = useState("");
 

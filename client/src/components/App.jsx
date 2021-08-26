@@ -6,10 +6,11 @@ import { getAllCountries } from "../requests.js";
 import Nav from "./Nav.jsx";
 
 const Homepage = lazy(() => import("./Homepage/Homepage.jsx"));
-const CountryDetails = lazy(() => import("./CountryDetails/CountryDetails.jsx"));
+const CountryDetails = lazy(() =>
+  import("./CountryDetails/CountryDetails.jsx")
+);
 
 const App = () => {
-
   const [countries, setCountries] = useState([]);
   const [displayed, setDisplayed] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
@@ -31,7 +32,12 @@ const App = () => {
           <Switch location={location} key={location.pathname}>
             <Route path="/:id" component={CountryDetails} />
             <Route path="/">
-              <Homepage countries={countries} displayed={displayed} setDisplayed={setDisplayed} darkMode={darkMode} />
+              <Homepage
+                countries={countries}
+                displayed={displayed}
+                setDisplayed={setDisplayed}
+                darkMode={darkMode}
+              />
             </Route>
           </Switch>
         </AnimatePresence>

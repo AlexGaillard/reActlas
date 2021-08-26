@@ -9,4 +9,6 @@ ReactDOM.render(
     <Router>
       <App />
     </Router>
-  </Suspense>, document.getElementById("app"));
+  </Suspense>,
+  document.getElementById("app")
+);
