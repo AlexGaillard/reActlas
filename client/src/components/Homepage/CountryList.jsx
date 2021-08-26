@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CountryCard from "../Homepage/CountryCard.jsx";
 
-const DisplayCountries = ({ displayed }) => {
+const CountryList = ({ displayed }) => {
   return displayed.map((country) => {
     return (
       <Link
@@ -15,4 +15,4 @@ const DisplayCountries = ({ displayed }) => {
   });
 };
 
-export default DisplayCountries;
+export default CountryList;

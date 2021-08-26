@@ -1,19 +1,16 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
-import { getAllCountries } from "../requests.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { getAllCountries } from "../requests.js";
 import Nav from "./Nav.jsx";
-import Search from "./Search.jsx";
-import Filter from "./Filter.jsx";
 
-const Homepage = lazy(() => import("./Homepage.jsx"));
-const CountryDetails = lazy(() => import("./CountryDetails.jsx"));
+const Homepage = lazy(() => import("./Homepage/Homepage.jsx"));
+const CountryDetails = lazy(() => import("./CountryDetails/CountryDetails.jsx"));
 
 const App = () => {
+
   const [countries, setCountries] = useState([]);
   const [displayed, setDisplayed] = useState([]);
-  const [searchString, setSearchString] = useState("");
-  const [filterString, setFilterString] = useState("");
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -22,26 +19,6 @@ const App = () => {
       setDisplayed(res.data);
     });
   }, []);
-
-  useEffect(() => {
-    handleFilterSearch();
-  }, [searchString, filterString]);
-
-  const handleFilterSearch = () => {
-    const filteredCountries = countries.filter((country) => {
-      let name = country.name.toLowerCase();
-      let region = country.region.toLowerCase();
-      if (searchString && filterString)
-        return (
-          name.includes(searchString.toLowerCase()) && region === filterString
-        );
-      else if (searchString && !filterString)
-        return name.includes(searchString.toLowerCase());
-      else if (!searchString && filterString) return region === filterString;
-      else return country;
-    });
-    setDisplayed(filteredCountries);
-  };
 
   return (
     <>
@@ -53,21 +30,7 @@ const App = () => {
             <Switch>
               <Route path="/:id" component={CountryDetails} />
               <Route path="/">
-                <div id="filter-search">
-                  <Search
-                    searchString={searchString}
-                    setSearchString={setSearchString}
-                  />
-                  <Filter
-                    filterString={filterString}
-                    setFilterString={setFilterString}
-                  />
-                </div>
-                <Homepage
-                  displayed={displayed}
-                  searchString={searchString}
-                  darkMode={darkMode}
-                />
+                <Homepage countries={countries} displayed={displayed} setDisplayed={setDisplayed} darkMode={darkMode} />
               </Route>
             </Switch>
           </Router>
