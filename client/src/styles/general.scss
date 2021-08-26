@@ -1,9 +1,10 @@
 body {
   margin: 0 0 2em 0;
   font-size: 16px;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   background-color: $light-background;
   transition: 1s;
+  overflow-x: hidden;
 
   #app {
     display: grid;
@@ -13,18 +14,21 @@ body {
       grid-template-columns: 5% 90% 5%;
     }
 
-    a, a:hover, a:focus, a:active {
+    a,
+    a:hover,
+    a:focus,
+    a:active {
       text-decoration: none;
       color: inherit;
     }
 
-    button {
+    button:not(#back-to-top) {
       border: none;
       background-color: $light-elements;
-      border-radius: .5em;
+      border-radius: 0.5em;
       box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
       cursor: pointer;
-      font-family: 'Nunito Sans';
+      font-family: "Nunito Sans";
 
       &:hover {
         box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.2);
@@ -35,11 +39,32 @@ body {
       grid-column: 2;
       grid-row: 2;
     }
+
+    #back-to-top {
+      position: fixed;
+      color: $light-text;
+      bottom: 1em;
+      right: 1em;
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      font-size: 2.5em;
+      cursor: pointer;
+      transition: transform 300ms, color 1000ms;
+
+      @include mobile {
+        bottom: 0.1em;
+        right: 0.1em;
+      }
+
+      &:hover {
+        transform: translateY(-10px) !important;
+      }
+    }
   }
 }
 
 ::-webkit-scrollbar {
-  width: .6em;
+  width: 0.6em;
 }
 
 ::-webkit-scrollbar-track {

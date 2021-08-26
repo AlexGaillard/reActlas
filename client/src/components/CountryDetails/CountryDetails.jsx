@@ -1,26 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { getBorders } from "../requests.js";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLongArrowAltLeft } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
-import DetailsLeft from "./CountryDetails/DetailsLeft.jsx";
-import DetailsRight from "./CountryDetails/DetailsRight.jsx";
-import BorderCountries from "./CountryDetails/BorderCountries.jsx";
+import { Helmet } from "react-helmet";
+import { motion } from "framer-motion";
+import DetailsLeft from "./DetailsLeft.jsx";
+import DetailsRight from "./DetailsRight.jsx";
+import BorderCountries from "./BorderCountries.jsx";
+import { pageVariants, pageTransition } from "../../Animation.js";
 
 const CountryDetails = (props) => {
   let country = props.location.state.country || props.location.state.border;
-  const [borders, setBorders] = useState([]);
   let history = useHistory();
-
-  useEffect(() => {
-    let queryString = "";
-    if (country.borders.length) {
-      country.borders.forEach((border) => (queryString += border + ";"));
-      getBorders(queryString).then((res) => {
-        setBorders(res.data);
-      });
-    }
-  }, [country]);
 
   const handleClick = () => {
     history.push("/");
@@ -32,7 +23,17 @@ const CountryDetails = (props) => {
   };
 
   return (
-    <div id="country-details">
+    <motion.div
+      id="country-details"
+      initial="right"
+      animate="mid"
+      exit="right"
+      variants={pageVariants}
+      transition={pageTransition}
+    >
+      <Helmet>
+        <link id="favicon" rel="icon" href={country.flag} />
+      </Helmet>
       <button className="back-button" type="button" onClick={handleClick}>
         <FontAwesomeIcon icon={faLongArrowAltLeft} /> Back
       </button>
@@ -51,9 +52,9 @@ const CountryDetails = (props) => {
           currencies={country.currencies}
           languages={country.languages}
         />
-        <BorderCountries borders={borders} />
+        <BorderCountries countryBorders={country.borders} />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
