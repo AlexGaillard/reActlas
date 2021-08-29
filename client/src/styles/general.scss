@@ -37,6 +37,11 @@ body {
 
     #container {
       grid-column: 2;
+      position: relative;
+
+      .motion {
+        position: absolute;
+      }
     }
 
     #back-to-top {

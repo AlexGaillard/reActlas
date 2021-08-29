@@ -15,6 +15,7 @@ const Homepage = ({ countries, displayed, setDisplayed, darkMode }) => {
   return (
     <>
       <motion.div
+        className="motion"
         initial="left"
         animate="mid"
         exit="left"

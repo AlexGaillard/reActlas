@@ -3,12 +3,11 @@ import { Switch, Route, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { AnimatePresence } from "framer-motion";
 import { getAllCountries } from "../requests.js";
+import CountryDetails from "./CountryDetails/CountryDetails.jsx";
+import Loading from "./Homepage/Loading.jsx";
 import Nav from "./Nav.jsx";
 
 const Homepage = lazy(() => import("./Homepage/Homepage.jsx"));
-const CountryDetails = lazy(() =>
-  import("./CountryDetails/CountryDetails.jsx")
-);
 
 const App = () => {
   const [countries, setCountries] = useState([]);
@@ -27,22 +26,22 @@ const App = () => {
     <>
       <Helmet bodyAttributes={darkMode && { class: "dark" }} />
       <Nav darkMode={darkMode} setDarkMode={setDarkMode} />
-      <div id="container">
-              <Suspense fallback={<div>Loading...</div>}>
-        <AnimatePresence exitBeforeEnter>
-          <Switch location={location} key={location.pathname}>
-            <Route path="/:id" component={CountryDetails} />
-            <Route path="/">
-                <Homepage
-                  countries={countries}
-                  displayed={displayed}
-                  setDisplayed={setDisplayed}
-                  darkMode={darkMode}
-                />
-            </Route>
-          </Switch>
-        </AnimatePresence>
-              </Suspense>
+      <div id="container" style={{position:'relative'}}>
+          <AnimatePresence>
+            <Switch location={location} key={location.pathname}>
+              <Route path="/:id" component={CountryDetails} />
+              <Route path="/">
+                <Suspense fallback={<Loading />}>
+                  <Homepage
+                    countries={countries}
+                    displayed={displayed}
+                    setDisplayed={setDisplayed}
+                    darkMode={darkMode}
+                  />
+                </Suspense>
+              </Route>
+            </Switch>
+          </AnimatePresence>
       </div>
     </>
   );
