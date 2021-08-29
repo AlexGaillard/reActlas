@@ -11,25 +11,6 @@
     margin: 0 12%;
   }
 
-  .loader,
-  .not-found {
-    grid-column-start: 1;
-    grid-column-end: 5;
-    color: $light-text;
-    opacity: 0.8;
-
-    svg {
-      display: block;
-      margin: auto;
-      font-size: 2em;
-    }
-
-    p {
-      text-align: center;
-      font-size: 1.5em;
-    }
-  }
-
   .country {
     background-color: $light-elements;
     border-radius: 0.3em;
