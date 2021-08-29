@@ -135,6 +135,10 @@
         box-sizing: border-box;
         transition: 1s;
 
+        &:first-child {
+          padding-top: 0.8em;
+        }
+
         @include mobile {
           width: 50vw;
         }
