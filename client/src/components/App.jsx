@@ -1,4 +1,4 @@
-import React, { useState, useEffect, lazy } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { AnimatePresence } from "framer-motion";
@@ -28,19 +28,21 @@ const App = () => {
       <Helmet bodyAttributes={darkMode && { class: "dark" }} />
       <Nav darkMode={darkMode} setDarkMode={setDarkMode} />
       <div id="container">
+              <Suspense fallback={<div>Loading...</div>}>
         <AnimatePresence exitBeforeEnter>
           <Switch location={location} key={location.pathname}>
             <Route path="/:id" component={CountryDetails} />
             <Route path="/">
-              <Homepage
-                countries={countries}
-                displayed={displayed}
-                setDisplayed={setDisplayed}
-                darkMode={darkMode}
-              />
+                <Homepage
+                  countries={countries}
+                  displayed={displayed}
+                  setDisplayed={setDisplayed}
+                  darkMode={darkMode}
+                />
             </Route>
           </Switch>
         </AnimatePresence>
+              </Suspense>
       </div>
     </>
   );
