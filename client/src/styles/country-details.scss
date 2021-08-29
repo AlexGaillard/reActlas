@@ -1,6 +1,6 @@
 #country-details {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 20% 80%;
 
   @include mobile {
@@ -9,43 +9,42 @@
   }
 
   .back-button {
-    width: 9em;
-    height: 3em;
     margin-bottom: 4em;
-    transition: transform 200ms, background-color 1000ms, color 1000ms;
+    height: 3em;
+    width: 9em;
     font-weight: 600;
+    transition: transform 200ms, background-color 1000ms, color 1000ms;
 
     &:hover {
       transform: translateX(-5px);
     }
 
     svg {
-      margin-right: .2em;
+      margin-right: 0.2em;
     }
   }
 
   img {
     grid-column: 1;
     width: 80%;
-    height: auto;
 
     @include mobile {
-      width: 100%;
       margin-bottom: 2em;
+      width: 100%;
     }
   }
 
   div {
-    height: 100%;
+    align-self: center;
     display: grid;
     grid-column: 2;
-    align-self: center;
-    transition: background-color 1000ms, color 1000ms;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    transition: 1000ms;
 
     @include mobile {
       grid-column: 1;
-      grid-template-columns: 100%;
+      grid-template-columns: 1fr;
       grid-row-gap: 1em;
     }
 
@@ -57,10 +56,11 @@
       }
     }
 
-    .details-left, .details-right {
-      list-style-type: none;
-      padding: 0;
+    .details-left,
+    .details-right {
       grid-row: 2;
+      padding: 0;
+      list-style-type: none;
 
       @include mobile {
         margin-top: 0;
@@ -68,7 +68,6 @@
     }
 
     .details-right {
-
       @include mobile {
         grid-row: 3;
       }
@@ -89,9 +88,9 @@
       }
 
       p {
-        width: fit-content;
         display: inline;
         margin-right: 0.8em;
+        width: fit-content;
 
         @include mobile {
           display: block;
@@ -100,9 +99,9 @@
     }
 
     button {
-      padding: .6em 1em;
-      margin-right: .5em;
+      padding: 0.6em 1em;
       margin-bottom: 1em;
+      margin-right: 0.5em;
       text-align: right;
       transition: transform 200ms, background-color 1000ms, color 1000ms;
 

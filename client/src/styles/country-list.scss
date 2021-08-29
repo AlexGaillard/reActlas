@@ -1,24 +1,22 @@
-#countries {
+#country-list {
+  display: grid;
+  column-gap: 6%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 5em;
   color: $light-text;
   font-size: 0.875em;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  justify-content: space-between;
-  column-gap: 6%;
-  row-gap: 5em;
-  position: relative;
 
   @include mobile {
     grid-template-columns: 1fr;
     margin: 0 12%;
   }
 
-  .loader, .not-found {
-    grid-row: 1;
+  .loader,
+  .not-found {
     grid-column-start: 1;
     grid-column-end: 5;
     color: $light-text;
-    opacity: .8;
+    opacity: 0.8;
 
     svg {
       display: block;
@@ -34,23 +32,21 @@
 
   .country {
     background-color: $light-elements;
-    border-radius: .3em;
-    width: auto;
+    border-radius: 0.3em;
     box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
-    overflow: hidden;
     cursor: pointer;
+    overflow: hidden;
     transition: transform 200ms, background-color 1000ms, color 1000ms;
 
     &:hover {
-      transform: translateY(-5px);
       box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.2);
+      transform: translateY(-5px);
     }
 
     img {
-      width: 100%;
       height: 11em;
+      width: 100%;
       object-fit: cover;
-      object-position: center center;
     }
 
     div {
@@ -66,4 +62,3 @@
     }
   }
 }
-

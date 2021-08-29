@@ -29,7 +29,7 @@ const Homepage = ({ countries, displayed, setDisplayed, darkMode }) => {
           countries={countries}
           setDisplayed={setDisplayed}
         />
-        <div id="countries">
+        <div id="country-list">
           <Helmet>
             {darkMode ? (
               <link id="favicon" rel="icon" href="favicon_dark.png" />

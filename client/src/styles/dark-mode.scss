@@ -3,8 +3,8 @@ body.dark {
 
   nav {
     background: $dark-elements;
-    color: $dark-text;
     box-shadow: 1px 1px 4px 2px rgba(0%, 0%, 0%, 0.1);
+    color: $dark-text;
   }
 
   #filter-search {
@@ -51,8 +51,8 @@ body.dark {
 
     .country {
       background-color: $dark-elements !important;
-      color: $dark-text;
       box-shadow: 1px 1px 4px 2px rgba(0%, 0%, 0%, 0.1);
+      color: $dark-text;
 
       &:hover {
         box-shadow: 1px 1px 4px 2px rgba(0%, 0%, 0%, 0.3);
@@ -63,8 +63,8 @@ body.dark {
   #country-details {
     button {
       background-color: $dark-elements !important;
-      color: $dark-text;
       box-shadow: 1px 1px 4px 2px rgba(0%, 0%, 0%, 0.1) !important;
+      color: $dark-text;
     }
 
     div {
