@@ -24,41 +24,41 @@ const CountryDetails = (props) => {
 
   return (
     <>
-    <Helmet>
-      <title>{country.name}</title>
-      <link id="favicon" type='image/svg' rel="icon" href={country.flag} />
-    </Helmet>
-    <motion.div
-      className="motion"
-      initial="right"
-      animate="mid"
-      exit="right"
-      variants={pageVariants}
-      transition={pageTransition}
-    >
-      <div id="country-details">
-        <button className="back-button" type="button" onClick={handleClick}>
-          <FontAwesomeIcon icon={faLongArrowAltLeft} /> Back
-        </button>
-        <img src={country.flag} alt={`Flag of ${country.name}`}></img>
-        <div>
-          <h3>{country.name}</h3>
-          <DetailsLeft
-            nativeName={country.nativeName}
-            parsePopulation={parsePopulation}
-            region={country.region}
-            subregion={country.subregion}
-            capital={country.capital}
+      <Helmet>
+        <title>{country.name}</title>
+        <link id="favicon" type="image/svg" rel="icon" href={country.flag} />
+      </Helmet>
+      <motion.div
+        className="motion"
+        initial="right"
+        animate="mid"
+        exit="right"
+        variants={pageVariants}
+        transition={pageTransition}
+      >
+        <div id="country-details">
+          <button className="back-button" type="button" onClick={handleClick}>
+            <FontAwesomeIcon icon={faLongArrowAltLeft} /> Back
+          </button>
+          <img src={country.flag} alt={`Flag of ${country.name}`}></img>
+          <div>
+            <h3>{country.name}</h3>
+            <DetailsLeft
+              nativeName={country.nativeName}
+              parsePopulation={parsePopulation}
+              region={country.region}
+              subregion={country.subregion}
+              capital={country.capital}
             />
-          <DetailsRight
-            topLevelDomain={country.topLevelDomain}
-            currencies={country.currencies}
-            languages={country.languages}
+            <DetailsRight
+              topLevelDomain={country.topLevelDomain}
+              currencies={country.currencies}
+              languages={country.languages}
             />
-          <BorderCountries countryBorders={country.borders} />
+            <BorderCountries countryBorders={country.borders} />
+          </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
     </>
   );
 };

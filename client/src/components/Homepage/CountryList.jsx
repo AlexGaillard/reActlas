@@ -1,27 +1,25 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CountryCard from "../Homepage/CountryCard.jsx";
-import DelayLink from 'react-delay-link';
 
 const CountryList = ({ displayed }) => {
   return displayed.map((country, index) => {
-
     const handleClick = () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+      setTimeout(function () {
+        window.scrollTo({
+          top: 0,
+        });
+      }, 550);
     };
 
     return (
-      <DelayLink
-        delay={(index > 3) ? 500 : 0}
-        clickAction={handleClick}
+      <Link
+        onClick={handleClick}
         to={{ pathname: `/${country.name}`, state: { country } }}
         key={country.alpha3Code}
       >
         <CountryCard key={country.name} countryData={country} />
-      </DelayLink>
+      </Link>
     );
   });
 };

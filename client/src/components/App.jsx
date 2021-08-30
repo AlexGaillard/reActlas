@@ -26,22 +26,22 @@ const App = () => {
     <>
       <Helmet bodyAttributes={{ class: darkMode && "dark" }} />
       <Nav darkMode={darkMode} setDarkMode={setDarkMode} />
-      <div id="container" style={{position:'relative'}}>
-          <AnimatePresence>
-            <Switch location={location} key={location.pathname}>
-              <Route path="/:id" component={CountryDetails} />
-              <Route path="/">
-                <Suspense fallback={<Loading />}>
-                  <Homepage
-                    countries={countries}
-                    displayed={displayed}
-                    setDisplayed={setDisplayed}
-                    darkMode={darkMode}
-                  />
-                </Suspense>
-              </Route>
-            </Switch>
-          </AnimatePresence>
+      <div id="container" style={{ position: "relative" }}>
+        <AnimatePresence>
+          <Switch location={location} key={location.pathname}>
+            <Route path="/:id" component={CountryDetails} />
+            <Route path="/">
+              <Suspense fallback={<Loading />}>
+                <Homepage
+                  countries={countries}
+                  displayed={displayed}
+                  setDisplayed={setDisplayed}
+                  darkMode={darkMode}
+                />
+              </Suspense>
+            </Route>
+          </Switch>
+        </AnimatePresence>
       </div>
     </>
   );
