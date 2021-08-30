@@ -15,6 +15,7 @@ const Homepage = ({ countries, displayed, setDisplayed, darkMode }) => {
   return (
     <>
       <motion.div
+        className="motion"
         initial="left"
         animate="mid"
         exit="left"
@@ -29,8 +30,9 @@ const Homepage = ({ countries, displayed, setDisplayed, darkMode }) => {
           countries={countries}
           setDisplayed={setDisplayed}
         />
-        <div id="countries">
+        <div id="country-list">
           <Helmet>
+            <title>reActlas</title>
             {darkMode ? (
               <link id="favicon" rel="icon" href="favicon_dark.png" />
             ) : (

@@ -1,14 +1,13 @@
-import React, { useState, useEffect, lazy } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { AnimatePresence } from "framer-motion";
 import { getAllCountries } from "../requests.js";
+import CountryDetails from "./CountryDetails/CountryDetails.jsx";
+import Loading from "./Homepage/Loading.jsx";
 import Nav from "./Nav.jsx";
 
 const Homepage = lazy(() => import("./Homepage/Homepage.jsx"));
-const CountryDetails = lazy(() =>
-  import("./CountryDetails/CountryDetails.jsx")
-);
 
 const App = () => {
   const [countries, setCountries] = useState([]);
@@ -25,22 +24,24 @@ const App = () => {
 
   return (
     <>
-      <Helmet bodyAttributes={darkMode && { class: "dark" }} />
+      <Helmet bodyAttributes={{ class: darkMode && "dark" }} />
       <Nav darkMode={darkMode} setDarkMode={setDarkMode} />
-      <div id="container">
-        <AnimatePresence exitBeforeEnter>
-          <Switch location={location} key={location.pathname}>
-            <Route path="/:id" component={CountryDetails} />
-            <Route path="/">
-              <Homepage
-                countries={countries}
-                displayed={displayed}
-                setDisplayed={setDisplayed}
-                darkMode={darkMode}
-              />
-            </Route>
-          </Switch>
-        </AnimatePresence>
+      <div id="container" style={{position:'relative'}}>
+          <AnimatePresence>
+            <Switch location={location} key={location.pathname}>
+              <Route path="/:id" component={CountryDetails} />
+              <Route path="/">
+                <Suspense fallback={<Loading />}>
+                  <Homepage
+                    countries={countries}
+                    displayed={displayed}
+                    setDisplayed={setDisplayed}
+                    darkMode={darkMode}
+                  />
+                </Suspense>
+              </Route>
+            </Switch>
+          </AnimatePresence>
       </div>
     </>
   );

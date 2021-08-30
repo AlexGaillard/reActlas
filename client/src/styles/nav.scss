@@ -1,18 +1,17 @@
 nav {
-  transition: 1s;
-  background-color: $light-elements;
-  grid-row: 1;
+  display: flex;
   grid-column-start: 1;
   grid-column-end: 4;
-  display: flex;
+  margin-bottom: 3em;
   justify-content: space-between;
   padding: 0 10%;
-  margin-bottom: 3em;
+  background-color: $light-elements;
   box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
+  transition: 1s;
 
   @include mobile {
-    padding: 5% 5%;
     margin-bottom: 2em;
+    padding: 5% 5%;
   }
 
   h1 {

@@ -31,7 +31,7 @@ const SearchFilter = ({
   };
 
   return (
-    <div id="filter-search">
+    <div id="search-filter">
       <Search searchString={searchString} setSearchString={setSearchString} />
       <Filter filterString={filterString} setFilterString={setFilterString} />
     </div>

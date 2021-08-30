@@ -1,7 +1,7 @@
-#filter-search {
+#search-filter {
+  margin-bottom: 3em;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 3em;
 
   @include mobile {
     display: grid;
@@ -10,21 +10,19 @@
 
   .search-container {
     @include mobile {
-      grid-row: 1;
       grid-column-start: 1;
       grid-column-end: 3;
     }
 
     form {
       display: flex;
-      transition: 1s;
-      background-color: $light-elements;
       padding: 1em;
       width: 28vw;
+      background-color: $light-elements;
       border-radius: 0.3em;
-      border: none;
       box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
       font-family: "Nunito Sans";
+      transition: 1s;
 
       @include mobile {
         width: unset;
@@ -40,9 +38,9 @@
       }
 
       input {
-        transition: 1s;
         width: 85%;
         border: none;
+        transition: 1s;
 
         &:focus-visible {
           outline: none;
@@ -61,24 +59,22 @@
   }
 
   .filter-container {
-    font-family: "Nunito Sans";
-    font-weight: 600;
-    font-size: 0.833em;
-    color: $light-input;
-    transition: 1s;
-    background-color: $light-elements;
+    align-items: center;
+    display: flex;
+    position: relative;
     width: 13vw;
+    background-color: $light-elements;
     border-radius: 0.3em;
     box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
-    display: flex;
-    align-items: center;
-    position: relative;
+    color: $light-input;
+    font-family: "Nunito Sans";
+    font-size: 0.833em;
+    font-weight: 600;
+    transition: 1s;
 
     @include mobile {
       width: 50vw;
-      grid-row: 2;
       grid-column-start: 1;
-      grid-column-end: 3;
       height: 3.3em;
     }
 
@@ -87,11 +83,11 @@
     }
 
     .filter-header {
-      cursor: pointer;
-      position: absolute;
-      padding: 1em 1em 1em 0;
-      width: 10vw;
       margin-left: 1em;
+      padding: 1em 1em 1em 0;
+      position: absolute;
+      width: 10vw;
+      cursor: pointer;
       font-weight: 600;
 
       @include mobile {
@@ -100,10 +96,10 @@
 
       .fa-chevron-down,
       .fa-chevron-up {
-        cursor: pointer;
-        right: 0;
-        bottom: 1.2em;
         position: absolute;
+        bottom: 1.2em;
+        right: 0;
+        cursor: pointer;
       }
 
       .filtered {
@@ -112,9 +108,9 @@
     }
 
     .fa-times-circle {
-      cursor: pointer;
       position: absolute;
       right: 0.7em;
+      cursor: pointer;
       font-size: 1rem;
       opacity: 0.5;
 
@@ -127,32 +123,31 @@
       position: relative;
 
       .filter-list {
-        transition: 1s;
-        width: 13vw;
-        z-index: 2;
-        top: 2.1em;
-        position: absolute;
-        padding: 0;
         margin: 0;
-        padding-left: 1em;
+        padding: 0 0 0 1em;
+        position: absolute;
+        top: 2.1em;
+        width: 13vw;
+        z-index: 1;
         background: $light-elements;
         border-radius: 0.3em;
-        box-sizing: border-box;
         box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.1);
-
-        @include mobile {
-          width: 50vw;
-        }
+        box-sizing: border-box;
+        transition: 1s;
 
         &:first-child {
           padding-top: 0.8em;
         }
 
+        @include mobile {
+          width: 50vw;
+        }
+
         .list-item {
-          cursor: pointer;
-          list-style: none;
           margin-bottom: 0.8em;
+          cursor: pointer;
           font-weight: 600;
+          list-style: none;
 
           &:hover {
             color: $light-text;
