@@ -4,14 +4,12 @@ import CountryCard from "../Homepage/CountryCard.jsx";
 
 const CountryList = ({ displayed }) => {
   return displayed.map((country, index) => {
-
     const handleClick = () => {
-      setTimeout(function(){
+      setTimeout(function () {
         window.scrollTo({
           top: 0,
         });
-       }, 550);
-
+      }, 550);
     };
 
     return (
