@@ -8,6 +8,11 @@
     grid-template-rows: unset;
   }
 
+  @include tablet {
+    grid-template-columns: 1fr;
+    grid-template-rows: unset;
+  }
+
   .back-button {
     margin-bottom: 4em;
     height: 3em;
@@ -45,6 +50,12 @@
     @include mobile {
       grid-column: 1;
       grid-template-columns: 1fr;
+      grid-row-gap: 1em;
+    }
+
+    @include tablet {
+      grid-column: 1;
+      grid-template-columns: 1fr 1fr;
       grid-row-gap: 1em;
     }
 

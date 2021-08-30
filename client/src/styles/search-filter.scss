@@ -78,6 +78,14 @@
       height: 3.3em;
     }
 
+    @include tablet {
+      width: 21vw;
+    }
+
+    @include tablet-l {
+      width: 14vw;
+    }
+
     &:hover {
       box-shadow: 1px 1px 4px 2px rgba(26.67%, 26.67%, 26.67%, 0.2);
     }
@@ -92,6 +100,10 @@
 
       @include mobile {
         width: 40vw;
+      }
+
+      @include tablet {
+        width: 15vw;
       }
 
       .fa-chevron-down,
@@ -141,6 +153,14 @@
 
         @include mobile {
           width: 50vw;
+        }
+
+        @include tablet {
+          width: 21vw;
+        }
+
+        @include tablet-l {
+          width: 14vw;
         }
 
         .list-item {
