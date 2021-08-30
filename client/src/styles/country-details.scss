@@ -6,6 +6,7 @@
   @include mobile {
     grid-template-columns: 1fr;
     grid-template-rows: unset;
+    padding-bottom: 2em;
   }
 
   @include tablet {
