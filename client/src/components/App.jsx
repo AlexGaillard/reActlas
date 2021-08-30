@@ -24,7 +24,7 @@ const App = () => {
 
   return (
     <>
-      <Helmet bodyAttributes={darkMode && { class: "dark" }} />
+      <Helmet bodyAttributes={{ class: darkMode && "dark" }} />
       <Nav darkMode={darkMode} setDarkMode={setDarkMode} />
       <div id="container" style={{position:'relative'}}>
           <AnimatePresence>

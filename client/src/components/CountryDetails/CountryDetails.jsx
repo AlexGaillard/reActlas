@@ -23,6 +23,11 @@ const CountryDetails = (props) => {
   };
 
   return (
+    <>
+    <Helmet>
+      <title>{country.name}</title>
+      <link id="favicon" type='image/svg' rel="icon" href={country.flag} />
+    </Helmet>
     <motion.div
       className="motion"
       initial="right"
@@ -32,9 +37,6 @@ const CountryDetails = (props) => {
       transition={pageTransition}
     >
       <div id="country-details">
-        <Helmet>
-          <link id="favicon" rel="icon" href={country.flag} />
-        </Helmet>
         <button className="back-button" type="button" onClick={handleClick}>
           <FontAwesomeIcon icon={faLongArrowAltLeft} /> Back
         </button>
@@ -57,6 +59,7 @@ const CountryDetails = (props) => {
         </div>
       </div>
     </motion.div>
+    </>
   );
 };
 

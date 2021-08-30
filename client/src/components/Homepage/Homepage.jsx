@@ -32,6 +32,7 @@ const Homepage = ({ countries, displayed, setDisplayed, darkMode }) => {
         />
         <div id="country-list">
           <Helmet>
+            <title>reActlas</title>
             {darkMode ? (
               <link id="favicon" rel="icon" href="favicon_dark.png" />
             ) : (
