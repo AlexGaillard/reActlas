@@ -25,7 +25,8 @@ const CountryDetails = (props) => {
   return (
     <>
     <Helmet>
-      <link id="favicon" rel="icon" href={country.flag} />
+      <title>{country.name}</title>
+      <link id="favicon" type='image/svg' rel="icon" href={country.flag} />
     </Helmet>
     <motion.div
       className="motion"
