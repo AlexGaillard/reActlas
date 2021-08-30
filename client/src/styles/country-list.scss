@@ -24,6 +24,10 @@
       transform: translateY(-5px);
     }
 
+    &:active {
+      transform: scale(1.2);
+    }
+
     img {
       height: 11em;
       width: 100%;
