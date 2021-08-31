@@ -10,6 +10,12 @@ app.get('/*', (req, res) => {
   res.redirect('/')
 })
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://18.118.2.28");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.listen(port, () => {
   console.log(`reActlas app listening at http://localhost:${port}`)
 })
